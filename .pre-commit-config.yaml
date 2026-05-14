@@ -1,0 +1,15 @@
+repos:
+
+# This validates our pre-commit.ci configuration
+- repo: https://github.com/pre-commit-ci/pre-commit-ci-config
+  rev: v1.6.1
+  hooks:
+    - id: check-pre-commit-ci-config
+
+- repo: https://github.com/ansys/pre-commit-hooks
+  rev: v0.5.2
+  hooks:
+    - id: add-license-headers
+      files: '(src|examples|tests)/.*\.(py)'
+      args:
+      - --start_year=2026

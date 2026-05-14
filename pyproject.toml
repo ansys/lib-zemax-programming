@@ -1,0 +1,122 @@
+# ========================================================
+# Project Metadata
+# ========================================================
+
+[project]
+name = "ansys-zemax-programming"
+version = "0.1.dev0"
+description = "Centralizes ZOS-API programming solutions provided by the Ansys Zemax team"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { file = "LICENSE" }
+authors = [{ name = "ANSYS, Inc.", email = "pyansys.core@ansys.com" }]
+maintainers = [{ name = "ANSYS, Inc.", email = "pyansys.core@ansys.com" }]
+keywords = ["zemax", "opticstudio", "zos-api", "ansys", "optics"]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+# No runtime dependencies — the library is example/test code only.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/ansys/lib-zemax-programming"
+Repository = "https://github.com/ansys/lib-zemax-programming"
+Issues = "https://github.com/ansys/lib-zemax-programming/issues"
+Changelog = "https://github.com/ansys/lib-zemax-programming/blob/main/CHANGELOG.md"
+
+# ========================================================
+# Optional dependency groups
+# Install examples:  pip install .[examples]
+# Install tests:     pip install .[tests]
+# Install both:      pip install .[examples,tests]
+# ========================================================
+
+[project.optional-dependencies]
+examples = [
+    "pythonnet>=3.0",
+    "numpy>=1.20",
+    "matplotlib>=3.3",
+]
+
+tests = [
+    "pytest>=8.0",
+    "pytest-html>=4.0",
+    "pytest-metadata>=3.0",
+    "pytest-xdist>=3.0",
+    "pythonnet>=3.0",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "matplotlib>=3.7",
+    "plotly>=5.0",
+]
+
+# ========================================================
+# Pytest Configuration
+# ========================================================
+
+[tool.pytest.ini_options]
+testpaths = ["tests/python"]
+pythonpath = ["tests/python"]
+addopts = [
+    "-p", "no:allure_pytest",
+    "-p", "no:allure_pytest_bdd",
+    "--self-contained-html",
+    "-v",
+]
+markers = [
+    # API CASES
+    "api_case01: Python standalone case 01",
+    "api_case02: Python standalone case 02",
+    "api_case03: Python standalone case 03",
+    "api_case04: Python standalone case 04",
+    "api_case05: Python standalone case 05",
+
+    # System performance
+    "SystemPerformance: The system performance",
+
+    # The SystemData class
+    "SystemData: SystemData",
+    "MaterialCatalogs: The MaterialCatalogs under SystemData",
+    "Aperture: The Aperture under SystemData",
+    "Fields: The Fields under SystemData",
+    "Wavelengths: The Wavelengths under SystemData",
+
+    # Lens Data Editor
+    "LDE: Lens Data Editor",
+    "surface_property: Surface property",
+    "ConvertCoordinate: Convert Coordinate from global to local or from local to global",
+
+    # Non-Sequential Component Editor
+    "NCE: Non-sequential Component Editor",
+
+    # Merit Function Editor
+    "MFE: Merit Function Editor",
+
+    # Multi-Configuration Editor
+    "MCE: Multi-Configuration Editor",
+
+    # Tolerance
+    "tolerance: tolerancing",
+
+    # NSCConverter
+    "NSCConverter: NSCConverter",
+
+    # Analyses
+    "Analyses: The analyses in ZOS",
+
+    # Tools
+    "Tools: ZOS Tools",
+    "ScaleTool: Scale Lens Tool",
+    "QuickFocusTool: Quick Focus",
+]

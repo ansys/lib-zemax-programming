@@ -1,0 +1,434 @@
+(*  Copyright (C) 2026 ANSYS, Inc. and/or its affiliates.                            *)
+(*  SPDX-License-Identifier: MIT                                                     *)
+(*                                                                                   *)
+(*                                                                                   *)
+(*  Permission is hereby granted, free of charge, to any person obtaining a copy     *)
+(*  of this software and associated documentation files (the "Software"), to deal    *)
+(*  in the Software without restriction, including without limitation the rights     *)
+(*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell        *)
+(*  copies of the Software, and to permit persons to whom the Software is            *)
+(*  furnished to do so, subject to the following conditions:                         *)
+(*                                                                                   *)
+(*  The above copyright notice and this permission notice shall be included in all   *)
+(*  copies or substantial portions of the Software.                                  *)
+(*                                                                                   *)
+(*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR       *)
+(*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,         *)
+(*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE      *)
+(*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER           *)
+(*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,    *)
+(*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE    *)
+(*  SOFTWARE.                                                                        *)
+
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14560,        404]
+NotebookOptionsPosition[     12085,        334]
+NotebookOutlinePosition[     12430,        349]
+CellTagsIndexPosition[     12387,        346]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Mathematica Standalone Application", "Title",
+ CellChangeTimes->{{3.839688029061371*^9, 3.839688029333041*^9}, {
+  3.839688063060649*^9, 
+  3.839688078509552*^9}},ExpressionUUID->"a08b22cf-f99a-42ff-ad2d-\
+e999221be01b"],
+
+Cell["\<\
+A blank Standalone Application template for running the ZOS-API\
+\>", "Text",
+ CellChangeTimes->{{3.8396881291975994`*^9, 3.8396881300308065`*^9}, {
+  3.839688228998783*^9, 
+  3.839688243597742*^9}},ExpressionUUID->"078ab324-6aac-4056-9291-\
+c5317db9f7a1"],
+
+Cell[CellGroupData[{
+
+Cell["1. Set up the interface", "Section",
+ CellChangeTimes->{{3.8396882595581264`*^9, 
+  3.8396882638859687`*^9}},ExpressionUUID->"faee84be-7496-4a98-9ad0-\
+ef19a27a12b1"],
+
+Cell[CellGroupData[{
+
+Cell["Install Mathematica\[CloseCurlyQuote]s NETLink context", "Subsection",
+ CellChangeTimes->{{3.8396882777989693`*^9, 
+  3.8396882855614657`*^9}},ExpressionUUID->"9fe7adf9-cc36-473c-b695-\
+79f1ad2d639f"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}]], "Input",
+ CellFrame->True,
+ CellMargins->{{30, 0}, {15, 0}},
+ CellChangeTimes->{{3.839688289624405*^9, 3.8396883024261284`*^9}},
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"620e7026-6cc4-45c5-af5b-3eef06803102"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Set a default directory and define the path to the ZOS-API libraries\
+\>", "Subsection",
+ CellChangeTimes->{{3.8396883515947313`*^9, 
+  3.839688361481258*^9}},ExpressionUUID->"43a85d13-61bc-4988-93b5-\
+31d873baab2f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"LoadNETType", "[", "\"\<Microsoft.Win32.Registry\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"zemaxData", " ", "=", " ", 
+   RowBox[{"Registry`GetValue", "[", 
+    RowBox[{
+    "\"\<HKEY_CURRENT_USER\\\\Software\\\\Zemax\>\"", ",", " ", 
+     "\"\<ZemaxRoot\>\"", ",", " ", 
+     RowBox[{"-", "1"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"samplesDir", "=", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{"zemaxData", ",", " ", "\"\<\\\\Samples\>\""}], "}"}], "]"}]}], 
+  ";"}]}], "Input",
+ CellFrame->True,
+ CellMargins->{{30, 0}, {15, 0}},
+ CellChangeTimes->{{3.839688289624405*^9, 3.8396883024261284`*^9}, 
+   3.8396886173866596`*^9},
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"5f9d010e-3381-4bf0-b16d-aafda476b107"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Initialize the connection", "Subsection",
+ CellChangeTimes->{{3.839688395302744*^9, 
+  3.8396883991473007`*^9}},ExpressionUUID->"1192f969-89a2-4346-b32b-\
+26c10e4e5518"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"netHelper", " ", "=", " ", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "zemaxData", ",", " ", 
+      "\"\<\\\\ZOS-API\\\\Libraries\\\\ZOSAPI_NetHelper.dll\>\""}], "}"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"LoadNETAssembly", "[", "netHelper", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "LoadNETType", "[", "\"\<ZOSAPI_NetHelper.ZOSAPI_Initializer\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"success", " ", "=", " ", 
+    RowBox[{"ZOSAPIUInitializer`Initialize", "[", "]"}]}], ";"}], "\n", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Note", " ", "--"}], " ", "uncomment", " ", "the", " ", 
+    "following", " ", "line", " ", "to", " ", "use", " ", "a", " ", "custom", 
+    " ", "initialization", " ", "path"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"success", " ", "=", " ", 
+     RowBox[{
+     "ZOSAPIUInitializer`Initialize", "[", 
+      "\"\<C:\\\\Program Files\\\\OpticStudio\>\"", "]"}]}], ";"}], 
+   "*)"}]}]}], "Input",
+ CellFrame->True,
+ CellMargins->{{30, 0}, {15, 0}},
+ CellChangeTimes->CompressedData["
+1:eJwdzlkowwEAx/FNjkc5XiTHyrQHWv5W7mPI/isNf4Y8TMyRTITQHDmSuaXF
+CLmfPIwHuYqtSSZXItKMeKD+I+SI/uX/+z98+7x+BUVVVIkTj8fzZ4POklfJ
+oDstTffQxMMYFbk/501L7X5KK6z+aSi4Zn0ibZzhanFYQxAtrcvdS4T8neEU
+OLYQI4M7F8898NBN2Qejhm7eYL1G9gkV/pZfqBOMeDeyZtTeCWH+5UowTDOO
+jMIQp+NJaPG0LED+y9YSPA1q3oDZJv4mvLW7XEBdU4QNTrsW3kNf5fIjHDPE
+0pAQTDlg+dniO4zMa/6C3zelPlpWayETAFcPHMEw1ZAugsWmjjCo7PchoIhg
+EqC50pgMeUw7CVt7JxSQ6K7Mgx8nKjUMFK6WteHz8YhzoPOhZZZVq/JqhVTS
+YBdsjF7nrGkaN0NTzjanXkzoKSEtvdIy8/BdvrYB62d2tyH1lxmaxbpL9sdB
+fdS5DGoqdHL4DxfM5Zo=
+  "],
+ TextAlignment->AlignmentMarker,
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"6f2a86d6-48b3-4489-86a4-796bc57ddc54"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"success", " ", "\[Equal]", " ", "True"}], ",", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"found", "=", "\"\<Found OpticStudio at: \>\""}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"location", "=", 
+      RowBox[{"ToString", "[", 
+       RowBox[{"ZOSAPIUInitializer`GetZemaxDirectory", "[", "]"}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"found", "<>", "location"}]}], "\[IndentingNewLine]", "}"}], ",",
+    " ", "\"\<Failed to connect!\>\""}], "]"}]], "Input",
+ CellFrame->True,
+ CellMargins->{{30, 0}, {15, 0}},
+ CellChangeTimes->{{3.766252021260979*^9, 3.76625203846459*^9}, {
+   3.7689155751212254`*^9, 3.7689156132860904`*^9}, {3.7690273461510496`*^9, 
+   3.7690273494975615`*^9}, 3.769032225376509*^9, {3.7776643069851527`*^9, 
+   3.7776644478785586`*^9}, {3.777664478956308*^9, 3.7776645110639772`*^9}, {
+   3.7776645846413746`*^9, 3.7776645987933607`*^9}, {3.777664639080394*^9, 
+   3.77766475072039*^9}, {3.777664890569967*^9, 3.777664899544757*^9}},
+ TextAlignment->AlignmentMarker,
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"abf686da-d4a4-4c76-a6c2-b1855d435826"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"Found OpticStudio at: c:\\\\program files\\\\zemax \
+opticstudio 21.3.1 beta\"\>", "}"}]], "Output",
+ CellChangeTimes->{
+  3.843920769793024*^9, 3.84392085119652*^9, 3.8439212906899757`*^9, 
+   3.84392137334933*^9, {3.8439217596654644`*^9, 
+   3.84392178265172*^9}},ExpressionUUID->"a3919ca4-0fd1-4066-96ab-\
+419c31acc123"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Load assemblies", "Subsection",
+ CellChangeTimes->{{3.8396884196575794`*^9, 
+  3.839688422125188*^9}},ExpressionUUID->"8d0ad71c-9a8f-4ab6-8ed3-\
+736e517aafb7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"zosapi", "=", 
+   RowBox[{"LoadNETAssembly", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{"location", ",", " ", "\"\<\\\\ZOSAPI.dll\>\""}], "}"}], "]"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"interfaces", "=", 
+   RowBox[{"LoadNETAssembly", "[", 
+    RowBox[{"FileNameJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{"location", ",", " ", "\"\<\\\\ZOSAPI_Interfaces.dll\>\""}], 
+      "}"}], "]"}], "]"}]}], ";"}]}], "Input",
+ CellFrame->True,
+ CellMargins->{{30, 0}, {15, 0}},
+ CellChangeTimes->{{3.766252021260979*^9, 3.76625203846459*^9}, {
+   3.7689155751212254`*^9, 3.7689156132860904`*^9}, {3.7690273461510496`*^9, 
+   3.7690273494975615`*^9}, 3.769032225376509*^9, {3.7776647722745123`*^9, 
+   3.777664779816164*^9}, {3.7776648220254173`*^9, 3.7776648750010605`*^9}, {
+   3.777664906297093*^9, 3.77766495188325*^9}, {3.7776650686907253`*^9, 
+   3.777665069416005*^9}, {3.7776652098156643`*^9, 3.777665266344265*^9}, {
+   3.7776655899029236`*^9, 3.7776655942636356`*^9}},
+ TextAlignment->AlignmentMarker,
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"24839dee-9a02-4eaf-8d5b-e1c7a100dfaa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Open connection and create the application", "Subsection",
+ CellChangeTimes->{{3.839688440804923*^9, 
+  3.839688449586424*^9}},ExpressionUUID->"7687d0c7-2691-42c3-895c-\
+bc89b88626fb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Open", " ", "connection", " ", "and", " ", "create", " ", "an", " ", 
+    "application"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"theConnection", "=", 
+     RowBox[{"NETNew", "[", "\"\<ZOSAPI.ZOSAPI_Connection\>\"", "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"theApplication", "=", 
+     RowBox[{"theConnection", "@", 
+      RowBox[{"CreateNewApplication", "[", "]"}]}]}], ";"}]}]}]], "Input",
+ CellFrame->True,
+ CellMargins->{{30, 0}, {15, 0}},
+ CellChangeTimes->{{3.7662520483944936`*^9, 3.7662520734968863`*^9}, {
+  3.768915627725685*^9, 3.768915643519889*^9}, {3.7772185086530094`*^9, 
+  3.777218518629236*^9}, {3.7772294462356577`*^9, 3.777229452653195*^9}, {
+  3.77730155688553*^9, 3.7773015575657034`*^9}, {3.7773020419798145`*^9, 
+  3.777302042756255*^9}, {3.777664956463653*^9, 3.7776649571358194`*^9}, {
+  3.777665070624301*^9, 3.777665071288994*^9}},
+ TextAlignment->AlignmentMarker,
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"b98361d8-513a-4e06-9cc0-5ab6ea4e499b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Perform final checks regarding the connection", "Subsection",
+ CellChangeTimes->{{3.839688440804923*^9, 3.839688449586424*^9}, {
+  3.843920456492786*^9, 
+  3.84392046597336*^9}},ExpressionUUID->"7a8b86b2-8889-4627-afa2-\
+6a839393e96e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Check", " ", "that", " ", "a", " ", "connection", " ", "was", " ", 
+    "established"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"NETObjectQ", "[", "theApplication", "]"}], " ", "\[Equal]", 
+      " ", "False"}], ",", " ", 
+     "\"\<An unknown connection error occurred!\>\"", ",", " ", 
+     RowBox[{"\"\<\>\"", ";"}]}], "]"}], "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Check", " ", "license", " ", "status"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"theApplication", "@", "IsValidLicenseForAPI"}], "\[Equal]", 
+       " ", "False"}], ",", " ", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"theApplication", "@", 
+         RowBox[{"CloseApplication", "[", "]"}]}], ";", 
+        "\[IndentingNewLine]", "\"\<License check failed!\>\""}], "}"}], ",", 
+      " ", "\"\<\>\""}], "]"}], ";"}]}]}]], "Input",
+ CellFrame->True,
+ CellMargins->{{30, 0}, {15, 0}},
+ CellChangeTimes->{{3.7662520483944936`*^9, 3.7662520734968863`*^9}, {
+  3.768915627725685*^9, 3.768915643519889*^9}, {3.7772185086530094`*^9, 
+  3.777218518629236*^9}, {3.7772294462356577`*^9, 3.777229452653195*^9}, {
+  3.77730155688553*^9, 3.7773015575657034`*^9}, {3.7773020419798145`*^9, 
+  3.777302042756255*^9}, {3.777664956463653*^9, 3.7776649571358194`*^9}, {
+  3.777665070624301*^9, 3.777665071288994*^9}, {3.843920470808078*^9, 
+  3.843920479987147*^9}, {3.843920675890939*^9, 3.8439207507653284`*^9}, {
+  3.843920860815098*^9, 3.8439208866187506`*^9}, {3.843920930850752*^9, 
+  3.8439209876787605`*^9}, {3.84392132838673*^9, 3.8439213378825197`*^9}, {
+  3.8439213956365037`*^9, 3.8439214804519625`*^9}, {3.8439215543612347`*^9, 
+  3.8439215970057573`*^9}, {3.843921738136207*^9, 3.843921739947053*^9}},
+ TextAlignment->AlignmentMarker,
+ Background->GrayLevel[
+  0.85],ExpressionUUID->"deb038a4-7409-43a9-8719-7c75e7638e67"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Close the application", "Section",
+ CellChangeTimes->{{3.839688474058258*^9, 
+  3.8396884761375017`*^9}},ExpressionUUID->"57164ee3-d71d-43df-97af-\
+c2c8107e09ac"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"theApplication", "@", 
+   RowBox[{"CloseApplication", "[", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.839688478377141*^9, 
+  3.8396884894719977`*^9}},ExpressionUUID->"509f8919-35f5-4589-86c0-\
+8ef70e3cb372"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{958, 988},
+WindowMargins->{{Automatic, -2064}, {Automatic, 0}},
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 226, 4, 101, "Title", "ExpressionUUID" -> \
+"a08b22cf-f99a-42ff-ad2d-e999221be01b"],
+Cell[809, 28, 266, 6, 30, "Text", "ExpressionUUID" -> \
+"078ab324-6aac-4056-9291-c5317db9f7a1"],
+Cell[CellGroupData[{
+Cell[1100, 38, 172, 3, 70, "Section", "ExpressionUUID" -> \
+"faee84be-7496-4a98-9ad0-ef19a27a12b1"],
+Cell[CellGroupData[{
+Cell[1297, 45, 206, 3, 49, "Subsection", "ExpressionUUID" -> \
+"9fe7adf9-cc36-473c-b695-79f1ad2d639f"],
+Cell[1506, 50, 281, 6, 48, "Input", "ExpressionUUID" -> \
+"620e7026-6cc4-45c5-af5b-3eef06803102"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1824, 61, 226, 5, 49, "Subsection", "ExpressionUUID" -> \
+"43a85d13-61bc-4988-93b5-31d873baab2f"],
+Cell[2053, 68, 825, 22, 87, "Input", "ExpressionUUID" -> \
+"5f9d010e-3381-4bf0-b16d-aafda476b107"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2915, 95, 175, 3, 49, "Subsection", "ExpressionUUID" -> \
+"1192f969-89a2-4346-b32b-26c10e4e5518"],
+Cell[3093, 100, 1882, 49, 163, "Input", "ExpressionUUID" -> \
+"6f2a86d6-48b3-4489-86a4-796bc57ddc54"],
+Cell[CellGroupData[{
+Cell[5000, 153, 1186, 24, 125, "Input", "ExpressionUUID" -> \
+"abf686da-d4a4-4c76-a6c2-b1855d435826"],
+Cell[6189, 179, 356, 7, 30, "Output", "ExpressionUUID" -> \
+"a3919ca4-0fd1-4066-96ab-419c31acc123"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6594, 192, 165, 3, 49, "Subsection", "ExpressionUUID" -> \
+"8d0ad71c-9a8f-4ab6-8ed3-736e517aafb7"],
+Cell[6762, 197, 1187, 26, 68, "Input", "ExpressionUUID" -> \
+"24839dee-9a02-4eaf-8d5b-e1c7a100dfaa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7986, 228, 190, 3, 49, "Subsection", "ExpressionUUID" -> \
+"7687d0c7-2691-42c3-895c-bc89b88626fb"],
+Cell[8179, 233, 1094, 25, 87, "Input", "ExpressionUUID" -> \
+"b98361d8-513a-4e06-9cc0-5ab6ea4e499b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9310, 263, 241, 4, 49, "Subsection", "ExpressionUUID" -> \
+"7a8b86b2-8889-4627-afa2-6a839393e96e"],
+Cell[9554, 269, 2036, 44, 144, "Input", "ExpressionUUID" -> \
+"deb038a4-7409-43a9-8719-7c75e7638e67"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11639, 319, 168, 3, 70, "Section", "ExpressionUUID" -> \
+"57164ee3-d71d-43df-97af-c2c8107e09ac"],
+Cell[11810, 324, 247, 6, 30, "Input", "ExpressionUUID" -> \
+"509f8919-35f5-4589-86c0-8ef70e3cb372"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
