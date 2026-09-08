@@ -1,40 +1,71 @@
-# Non-paraxial Linear Y Idealized Polarizer 
+# How to simulate for Grid Wire Polarizer 
 
 ## Overview
 
-This diffractive DLL models a non-paraxial idealized polarizer that produces a linear polarized transverse electric field. It is an alternative to the Jones matrix, that model polarizers for paraxial fields under normal incidence. This non-paraxial idealized polarizer model supports reflection as well as transmission, material changes (i.e. refraction is considered), and support curved surfaces too.
+In this post, it's introduced how to simulate realistic grid wire polarizer with RCWA function that comes with OpticStudio 20.2.
 
-The diffractive DLL is only a tool used here to compute the electric field. 
+![Alt text](image1.png)
 
+(Source: https://www.thorlabs.com/newgrouppage9.cfm?objectgroup_id=5510)
 
-For more information, check the following article:
-S. Zhang, H. Partanen, C. Hellmann, and F. Wyrowski. Non-paraxial idealized polarizer model. Optics Express, 26(8):9840-9849 (2018).
-https://opg.optica.org/oe/fulltext.cfm?uri=oe-26-8-9840&id=385354
+## Note there are many different types of polarizer
 
-## Source Language
-C++
+- For polarizer based on birefringent crystal, check the following article: How to design birefringent polarizers
+
+- For polarizer based on coating, there is no an article specific to introduction, but users can refer to the following article to know how to set up a coating and assign to object for beam splitting: How to model a dichroic beam splitter
+
+- Then it's also worth to note the existence of a build-in ideal coating "PASS_P". This coating allows P polarization to pass and reflect light with S polarization.
+
+![Alt text](image2.png)
+
+Note the coating method can only work for obliquely incident beam. Usually this kind of polarizer is made as a cube or a plate oblique placed in the system. More information can be found in this forum post: (https://community.zemax.com/got-a-question-7/pass-p-coating-fail-for-the-modeling-of-a-wire-grid-polarizer-how-to-model-it-correctly-1052)
+
 
 ## Author
 Michael Cheng
 
-## Instructions
+## Back to Grid Wire Polarizer
 
-#### 1. Installation
-Copy the compiled DLLs into the *Zemax\DLL\Diffractive* folder.
+In past, the grid wire polarizer was mainly simulated with Jones Matrix or DBEF, which are ideal models.
 
-The DLL is also contained in the example Zemax files, so opening the *example_ideal_polarizer.zprj* or the *Curved_polarizer.zprj* files will copy the DLL into the *Zemax\DLL\Diffractive* folder too.
+- How to model a Dual Brightness Enhancement Film [https://optics.ansys.com/hc/en-us/articles/42661810341139-How-to-model-a-Dual-Brightness-Enhancement-Film]
 
-#### 2. How to use
-**Idealized Polarizer**
-- Open the attached *example_ideal_polarizer.zprj* file
-- The second polarizers on *Objects 2* is roteated by 90 degrees compared to the first polarizer on *Object 1* by the *Tilt About Z* parameter.
-- The model correctly provides the following typical cross pattern when two polarizers are crossed and the beam is slightly diverging.
+- How to use the Jones Matrix surface [https://optics.ansys.com/hc/en-us/articles/43071140222099-How-to-use-the-Jones-Matrix-surface]
 
-![Alt text](Ideal_Polarizer.png)
+Since OpticStudio 20.2, a new diffractive DLL called "srg_gridwirepolarizer.DLL" for accurately handling this kind of polarizer is added. This DLL is based on RCWA algorithm. 
 
-**Curved Polarizer**
-- Open the attached *Curved_polarizer.zprj* file
-- The polarizer is located on the *Binary 2* object, which has a curved front surface.
-- The model supports reflection and refraction, as well as curved surfaces.
+More about RCWA can be found in the following article:  Simulating diffraction efficiency of surface-relief grating using the RCWA method [https://optics.ansys.com/hc/en-us/articles/42661666095891-Simulating-diffraction-efficiency-of-surface-relief-grating-using-the-RCWA-method]
 
-![Alt text](Curved_polarizer.png)
+To demo how to set up an accurate grid wire polarizer model with this DLL, a sample file is attached in this post. In the sample file, it can be seen the system is set up as below.
+
+![Alt text](image3.png)
+
+![Alt text](image4.png)
+
+Object 1 is a source that will always send one ray in z direction. By looking at Object Property > Sources, it can be seen the source is y-polarized.
+
+![Alt text](image5.png)
+
+Object 2 is a User Defined Object reading the DiffractionGrating.DLL. This object’s first face is diffractive and set with the “srg_gridwirepolarizer_RCWA.dll”. This DLL can simulates binary grating. A grid wire polarizer here is simulated as a binary grating but period much smaller than light wavelength and the material being metal (n = 0.7-7i).
+
+![alt text](image6.png)
+
+The shape of the grating can be checked with the tool User Extension > RCWA_visualization.
+
+![alt text](image7.png)
+
+By clicking “Draw”, the geometry of the grid wire polarizer can be shown as below.
+
+![alt text](image8.png)
+
+The meaning of the parameters is explained in the above picture. The grating direction is along the y-axis and can be changed by Rotate Grating parameter.
+
+In the sample file, there are 4 Universal Plot draws the energy received by the 4 detectors. In the plots, the incident light’s polarization state is rotated.
+
+![alt text](image9.png)
+
+It can be seen, at x = 0, Transmit X = 85%, Reflect X = 7%, Transmit Y = 0%, Reflect Y = 0%
+
+And at x = 90, which means ray is incident with exact x polarization:
+
+Transmit X = 0%, Reflect X = 0%, Transmit Y = 0%, Reflect Y = 93%
