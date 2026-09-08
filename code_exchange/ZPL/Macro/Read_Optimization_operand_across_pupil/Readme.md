@@ -3,7 +3,7 @@
 ## Overview
 
 ![Alt text](image1.png)
-                                        Output of the macro with some additional post-processing in Excel
+Output of the macro with some additional post-processing in Excel
 
 This macro may be used as a basis for gathering field-by-field ray data in equal steps across the pupil. In this macro, the angle of incidence on a surface is reported but the operand may be changed to any that uses normalized ray coordinates. 
 
