@@ -3,7 +3,7 @@ from itertools import islice
 
 # This boilerplate requires the 'pythonnet' module.
 # The following instructions are for installing the 'pythonnet' module via pip:
-#    1. Ensure you are running Python 3.4, 3.5, 3.6, or 3.7. PythonNET does not work with Python 3.8 yet.
+#    1. Ensure you are running Python and PythonNET.
 #    2. Install 'pythonnet' from pip via a command prompt (type 'cmd' from the start menu or press Windows + R and type 'cmd' then enter)
 #
 #        python -m pip install pythonnet
