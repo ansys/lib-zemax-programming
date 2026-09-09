@@ -170,8 +170,9 @@ if __name__ == "__main__":
         # IMPORTANT: change this if the detector is not NCE object 7.
         detector_object_number = 7
 
-        grid_rows = 35
-        grid_columns = 10
+        source_parent = TheSystem.NCE.GetObjectAt(center_source_object)
+        grid_rows = source_parent.SourcesData.ArrayNumberY
+        grid_columns = source_parent.SourcesData.ArrayNumberX
         delta_x_m = 12.0 / 1000.0
         model_folder = os.path.dirname(TheSystem.SystemFile)
         all_source_ray_data = {}
