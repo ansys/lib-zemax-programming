@@ -4,7 +4,7 @@
 
 To compute the ABCD ray transfer matrix, OpticStudio traces rays over a very small region centered upon the reference field position. Usually, this is the center of the field of view. OpticStudio allows selection of which field position to use for reference. By default, OpticStudio sets the corner of the field grid in object space to be at the maximum radial field distance. Because object height is linear with the tangent of the field angle, the full width of the field when angles are used to define the field is given by
 
-![Alt text](field_equation.png)
+$\theta_{\text{wide}} = 2\tan^{-1}\!\left(\frac{\sqrt{2}}{2}\tan\theta_r\right)$
 
 where θr is the maximum radial field angle at the corner of the field.
 

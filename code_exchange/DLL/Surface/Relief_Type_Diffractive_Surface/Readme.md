@@ -8,7 +8,7 @@ This User-Defined Surface DLL provides a realistic model for relief-type diffrac
 
 This DLL applies a simple rotationally symmetric diffractive structure with a uniform relief step height, added on top of a Standard surface representing the substrate. To enable model comparison with built-in OpticStudio solutions, the relief shape is described by Even Asphere polynomials. Accordingly, the surface sag is given by the following equation:
 
-![Alt text](Surface_Sag.png)
+$z = z_{\text{subs}} + z_{\text{DOE}} = \frac{cr^2}{1+\sqrt{1-(1+k)c^2r^2}} + \operatorname{mod}(a_1r^2+a_2r^4+a_3r^6+a_4r^8+a_5r^{10},h)$
 
 In the above equation, *mod* represents the modulo function, $c$ is the curvature, i.e. the reciprocal of the radius, $k$ is the conic constant, $r$ is the radial coordinate, and $h$ is the uniform relief step height.
 
