@@ -96,7 +96,7 @@ def reshape(data, x, y, transpose = False):
     it = iter(data)
     res = [list(islice(it, i)) for i in var_lst]
     if transpose:
-        return self.transpose(res);
+        return transpose(res);
     return res
     
 def transpose(data):

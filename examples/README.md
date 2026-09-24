@@ -36,3 +36,19 @@ Each language folder contains examples with instructions specific to that langua
 All examples require:
 - An installed and licensed copy of Zemax OpticStudio
 - Appropriate development tools for your chosen language (such as compilers and IDEs)
+
+## Using templates
+
+In the template directory, each language will have a base template with which you can start developing your code. These templates handle the general connection to Zemax, key functions, and basic error handling. In each template there will be a clear comment where you can start writing your specific ZOS-API code.
+
+- **C++ & C#** : these will require Visual Studio or similar IDE for compiling and editing the code. They both come in four flavors:
+   - **Standalone** - this mode will run Zemax headlessly and return results or information about your model without the Zemax GUI.
+   - **User Extension** - this mode will run inside of Zemax (found in Programming...Extensions) where your code can interact with the Zemax GUI.
+   - **User Analysis** - will open an analysis window, much like the built-in windows in Zemax, where you can define your own settings and data visualization.
+   - **User Operand** - will create a user defined operand for the Zemax Merit Function to customize optimization.
+
+- **Python** : will require a Python-specific IDE like Visual Code or similar, as well as the other requirements listed for running Python examples. There are two types:
+   - **Standalone** - this is similar to the C-templates and will run Zemax headlessly without the Zemax GUI.
+   - **Interactive Extension** - this mode will connect to a listening Zemax instance and allow your Python script to take control of the GUI.
+   
+- **MATLAB & Mathematica** : these templates will require MATLAB or Mathematica to run, and have the same types as Python.
