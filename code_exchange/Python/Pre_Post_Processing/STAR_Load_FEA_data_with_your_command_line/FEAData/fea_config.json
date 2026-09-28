@@ -1,0 +1,86 @@
+{
+    "surface_2":{
+        "deformation":
+        {
+            "fea_file": "Surface_02_Deformation_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0.5, 0, 0],
+            "user-defined_transform_rotation": [0, 5, 0]
+        },
+        "temperature":
+        {
+            "fea_file": "Surface_02_Temperature_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0.1, 0],
+            "user-defined_transform_rotation": [0, 0.2, 0]
+        }
+    },
+    "surface_3":{
+        "deformation":
+        {
+            "fea_file": "Surface_03_Deformation_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0, 0.2],
+            "user-defined_transform_rotation": [0, 0, 0.3]
+        }
+    },
+    "surface_5":{
+        "deformation":
+        {
+            "fea_file": "Surface_05_Deformation_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0, 0],
+            "user-defined_transform_rotation": [0, 0, 0]
+        }   
+    },
+    "surface_8":{
+        "deformation":
+        {
+            "fea_file": "Surface_08_Deformation_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0, 0],
+            "user-defined_transform_rotation": [0, 0, 0]
+        },
+        "temperature":
+        {
+            "fea_file": "Surface_08_Temperature_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0, 0],
+            "user-defined_transform_rotation": [0, 0, 0]
+        }
+    },
+    "surface_9":{
+        "deformation":
+        {
+            "fea_file": "Surface_09_Deformation_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0, 0],
+            "user-defined_transform_rotation": [0, 0, 0]
+        }   
+    },
+    "surface_12":{
+        "deformation":
+        {
+            "fea_file": "Surface_12_Deformation_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0, 0],
+            "user-defined_transform_rotation": [0, 0, 0]
+        },
+        "temperature":
+        {
+            "fea_file": "Surface_12_Temperature_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0, 0],
+            "user-defined_transform_rotation": [0, 0, 0]
+        }
+    },
+    "surface_13":{
+        "deformation":
+        {
+            "fea_file": "Surface_13_Deformation_global_coordinates_surface_2.txt",
+            "fea_coordinate_system": "global",
+            "user-defined_transform_decenter": [0, 0, 0],
+            "user-defined_transform_rotation": [0, 0, 0]
+        }   
+    }
+}
