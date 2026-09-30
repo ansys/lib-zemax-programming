@@ -1,0 +1,236 @@
+import clr, os, winreg
+from itertools import islice
+import re
+
+"""
+This script is to help STAR users assign multiphysics datasets into their system automatically!
+You need to provide:
+ (1) A Path to the ZMX file that you want to add the datasets to
+ (2) A Path to the folder where the multiphysics datasets are located
+
+Assumptions made with this script:
+ (1) The multiphysics filenames were generated with or are in the naming format that are exported 
+     using the Export to STAR extension (Surface_02_Deformation_2.txt) 
+     https://optics.ansys.com/hc/en-us/articles/42661746128787-STAR-Tools-in-OpticStudio-Ansys-Mechanical-Data-Export-Extension
+ (2) The coordinate system that the datasets are saved with respect to the global coordinate reference surface in the 
+     OpticStudio file i.e. they are in the global coordinate system
+
+Please note: 
+* I am not a developer. As such, there may be bugs/cases where this script doesn't work. 
+* This script is provided to serve as a guide for you to make it your own. 
+
+Helpful links for future exploration:
+* OpticStudio Help Doc: https://ansyshelp.ansys.com/public/account/secured?returnurl=/Views/Secured/Zemax/v251/en/OpticStudio_User_Guide/index.html
+* Zemax OpticStudio Knowledgebase: https://optics.ansys.com/hc/en-us/categories/10139548118675-Zemax-Knowledge-Base
+* Tutorial: Getting Started with ZOS-API: https://optics.ansys.com/hc/en-us/articles/42661816179731--Tutorial-Series-Getting-Started-with-ZOS-API
+
+Esteban Carbajal
+Senior Product Manager | OpticStudio Enterprise & STAR
+esteban.carbajal@ansys.com
+08/25/2025
+"""
+
+class PythonStandaloneApplication(object):
+    class LicenseException(Exception):
+        pass
+    class ConnectionException(Exception):
+        pass
+    class InitializationException(Exception):
+        pass
+    class SystemNotPresentException(Exception):
+        pass
+
+    def __init__(self, path=None):
+        # determine location of ZOSAPI_NetHelper.dll & add as reference
+        aKey = winreg.OpenKey(winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER), r"Software\Zemax", 0, winreg.KEY_READ)
+        zemaxData = winreg.QueryValueEx(aKey, 'ZemaxRoot')
+        NetHelper = os.path.join(os.sep, zemaxData[0], r'ZOS-API\Libraries\ZOSAPI_NetHelper.dll')
+        winreg.CloseKey(aKey)
+        clr.AddReference(NetHelper)
+        import ZOSAPI_NetHelper
+        
+        # Find the installed version of OpticStudio
+        if path is None:
+            isInitialized = ZOSAPI_NetHelper.ZOSAPI_Initializer.Initialize()
+        else:
+            # Note -- uncomment the following line to use a custom initialization path
+            isInitialized = ZOSAPI_NetHelper.ZOSAPI_Initializer.Initialize(path)
+        
+        # determine the ZOS root directory
+        if isInitialized:
+            dir = ZOSAPI_NetHelper.ZOSAPI_Initializer.GetZemaxDirectory()
+        else:
+            raise PythonStandaloneApplication.InitializationException("Unable to locate Zemax OpticStudio.  Try using a hard-coded path.")
+
+        # add ZOS-API referencecs
+        clr.AddReference(os.path.join(os.sep, dir, "ZOSAPI.dll"))
+        clr.AddReference(os.path.join(os.sep, dir, "ZOSAPI_Interfaces.dll"))
+        import ZOSAPI
+
+        # create a reference to the API namespace
+        self.ZOSAPI = ZOSAPI
+
+        # create a reference to the API namespace
+        self.ZOSAPI = ZOSAPI
+
+        # Create the initial connection class
+        self.TheConnection = ZOSAPI.ZOSAPI_Connection()
+
+        if self.TheConnection is None:
+            raise PythonStandaloneApplication.ConnectionException("Unable to initialize .NET connection to ZOSAPI")
+
+        self.TheApplication = self.TheConnection.CreateNewApplication()
+        if self.TheApplication is None:
+            raise PythonStandaloneApplication.InitializationException("Unable to acquire ZOSAPI application")
+
+        if self.TheApplication.IsValidLicenseForAPI == False:
+            raise PythonStandaloneApplication.LicenseException("License is not valid for ZOSAPI use")
+
+        self.TheSystem = self.TheApplication.PrimarySystem
+        if self.TheSystem is None:
+            raise PythonStandaloneApplication.SystemNotPresentException("Unable to acquire Primary system")
+
+    def __del__(self):
+        if self.TheApplication is not None:
+            self.TheApplication.CloseApplication()
+            self.TheApplication = None
+        
+        self.TheConnection = None
+    
+    def OpenFile(self, filepath, saveIfNeeded):
+        if self.TheSystem is None:
+            raise PythonStandaloneApplication.SystemNotPresentException("Unable to acquire Primary system")
+        self.TheSystem.LoadFile(filepath, saveIfNeeded)
+
+    def CloseFile(self, save):
+        if self.TheSystem is None:
+            raise PythonStandaloneApplication.SystemNotPresentException("Unable to acquire Primary system")
+        self.TheSystem.Close(save)
+
+    def SamplesDir(self):
+        if self.TheApplication is None:
+            raise PythonStandaloneApplication.InitializationException("Unable to acquire ZOSAPI application")
+
+        return self.TheApplication.SamplesDir
+
+    def ExampleConstants(self):
+        if self.TheApplication.LicenseStatus == self.ZOSAPI.LicenseStatusType.PremiumEdition:
+            return "Premium"
+        elif self.TheApplication.LicenseStatus == self.ZOSAPI.LicenseStatusTypeProfessionalEdition:
+            return "Professional"
+        elif self.TheApplication.LicenseStatus == self.ZOSAPI.LicenseStatusTypeStandardEdition:
+            return "Standard"
+        else:
+            return "Invalid"
+    
+    def reshape(self, data, x, y, transpose = False):
+        """Converts a System.Double[,] to a 2D list for plotting or post processing
+        
+        Parameters
+        ----------
+        data      : System.Double[,] data directly from ZOS-API 
+        x         : x width of new 2D list [use var.GetLength(0) for dimension]
+        y         : y width of new 2D list [use var.GetLength(1) for dimension]
+        transpose : transposes data; needed for some multi-dimensional line series data
+        
+        Returns
+        -------
+        res       : 2D list; can be directly used with Matplotlib or converted to
+                    a numpy array using numpy.asarray(res)
+        """
+        if type(data) is not list:
+            data = list(data)
+        var_lst = [y] * x;
+        it = iter(data)
+        res = [list(islice(it, i)) for i in var_lst]
+        if transpose:
+            return self.transpose(res);
+        return res
+    
+    def transpose(self, data):
+        """Transposes a 2D list (Python3.x or greater).  
+        
+        Useful for converting mutli-dimensional line series (i.e. FFT PSF)
+        
+        Parameters
+        ----------
+        data      : Python native list (if using System.Data[,] object reshape first)    
+        
+        Returns
+        -------
+        res       : transposed 2D list
+        """
+        if type(data) is not list:
+            data = list(data)
+        return list(map(list, zip(*data)))
+
+if __name__ == '__main__':
+    zos = PythonStandaloneApplication()
+    
+    # load local variables
+    ZOSAPI = zos.ZOSAPI
+    TheApplication = zos.TheApplication
+    TheSystem = zos.TheSystem
+    TheLDE = TheSystem.LDE
+    sampleDir = TheApplication.SamplesDir
+
+    
+    # Lets select the opticstudio that we want to choose
+    workingZOSfile = "{PATH_TO_THE_ZEMAX OPTICSTUDIO FILE (ZMX)}" ### C:\Users\YOUR_PATH\STAR_EXAMPLE_FILE.zmx
+    wdf_ht = os.path.split(workingZOSfile)
+    wpath = wdf_ht[0]
+    wfile = wdf_ht[1] # PATH | FILENAME.EXT
+    wfile_ht = os.path.splitext(wdf_ht[1]) # FILENAME | .EXT
+
+    # Open the file
+    TheSystem.LoadFile(workingZOSfile, False)
+    
+    # Save a new file with STAR suffix
+    file2 = os.path.join(wpath, wfile_ht[0] + '_STAR' + wfile_ht[1]) 
+    TheSystem.SaveAs(file2)
+
+    # Choose the folder where the multiphysics datasets are
+    FEAdir = "{PATH_TO_THE_FOLDER_OF_MULTIPHYSICS_FILES (DIRECTORY)}" ### C:\Users\YOUR_PATH\MULTIPHYSICS_FOLDER
+    
+    # Get the list of files from the folder
+    FEAlist = os.listdir(FEAdir) 
+
+    # Loop through the Multiphysics files and assign them 
+    for q in range(len(FEAlist)):
+        print(FEAlist[q])
+
+        feafilename = FEAlist[q]
+        pattern = r"Surface_(\d+)_([A-Za-z]+)"
+        match = re.search(pattern, feafilename)
+
+        if match:
+            surface_num = match.group(1)       # "02"
+            FEA_type = match.group(2)  # "Deformation"
+            print('Going to fit ' + FEA_type + ' to surface ' + surface_num)
+
+        CurrentSurface = TheLDE.GetSurfaceAt(surface_num)
+
+        if FEA_type == 'Deformation':
+            CurrentSurface.STARData.Deformations.SetDataIsGlobal()
+            CurrentSurface.STARData.Deformations.FEAData.ImportDeformations(os.path.join(FEAdir,FEAlist[q]))
+
+        elif FEA_type == 'Temperature':
+            CurrentSurface.STARData.Temperatures.SetDataIsGlobal()
+            CurrentSurface.STARData.Temperatures.set_GRINStep((CurrentSurface.Thickness)/10)
+            CurrentSurface.STARData.Temperatures.FEAData.ImportTemperatures(os.path.join(FEAdir,FEAlist[q]))
+
+        elif FEA_type == 'Stress':
+            CurrentSurface.STARData.Stress.SetDataIsGlobal()
+            CurrentSurface.STARData.Stress.set_GrinStep((CurrentSurface.Thickness)/10)
+            CurrentSurface.STARData.Stress.FEAData.ImportStress(os.path.join(FEAdir,FEAlist[q]))
+
+
+    #Save and close
+    TheSystem.Save()
+    print('Program Complete!')
+    
+    # This will clean up the connection to OpticStudio.
+    # Note that it closes down the server instance of OpticStudio, so you for maximum performance do not do
+    # this until you need to.
+    del zos
+    zos = None
