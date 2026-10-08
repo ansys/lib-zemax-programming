@@ -55,7 +55,7 @@ import ZOSAPI.*;
     TheSystem = TheApplication.PrimarySystem;
     
     % Load a non-sequential file
-    TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir, '\\Non-Sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zos'), false);
+    TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir, '\\Non-Sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zmx'), false);
     
     %! [e20s01_m]
 	% Get interface of IExportCAD

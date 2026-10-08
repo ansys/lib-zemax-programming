@@ -57,7 +57,7 @@ import ZOSAPI.*;
     
     %! [e01s01_m]
     % Make new file
-    testFile = System.String.Concat(sampleDir, '\API\Matlab\e01_new_file_and_quickfocus.zos');
+    testFile = System.String.Concat(sampleDir, '\API\Matlab\e01_new_file_and_quickfocus.zmx');
     TheSystem.New(false);
     TheSystem.SaveAs(testFile);
     %! [e01s01_m]

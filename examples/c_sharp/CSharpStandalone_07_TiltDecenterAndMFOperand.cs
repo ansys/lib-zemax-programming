@@ -74,7 +74,7 @@ namespace CSharpStandaloneApplication1
             IOpticalSystem TheSystem = TheApplication.PrimarySystem;
 
             // Add your custom code here...
-            string FilePath = TheApplication.ZemaxDataDir + "\\Samples\\Sequential\\Objectives\\Cooke 40 degree field.zos";
+            string FilePath = TheApplication.ZemaxDataDir + "\\Samples\\Sequential\\Objectives\\Cooke 40 degree field.zmx";
             TheSystem.LoadFile(FilePath, false);
 
             //! [e07s01_cs]
@@ -162,7 +162,7 @@ namespace CSharpStandaloneApplication1
             //! [e07s06_cs]
 
             // save the file
-            string OutFilePath = TheApplication.ZemaxDataDir + "\\Samples\\API\\CS\\CS_07_TiltDecenterAndMFOperand.zos";
+            string OutFilePath = TheApplication.ZemaxDataDir + "\\Samples\\API\\CS\\CS_07_TiltDecenterAndMFOperand.zmx";
             TheSystem.SaveAs(OutFilePath);
 
             // Clean up

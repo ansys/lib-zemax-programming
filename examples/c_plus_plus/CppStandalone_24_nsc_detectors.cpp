@@ -290,7 +290,7 @@ int RunApplication()
 
 	//! [e24s14_cp]
 	// saves current system in memory
-	TheSystem->SaveAs((_bstr_t)TheApplication->SamplesDir + "\\API\\CPP\\e24_nsc_detectors.zos");
+	TheSystem->SaveAs((_bstr_t)TheApplication->SamplesDir + "\\API\\CPP\\e24_nsc_detectors.zmx");
 	//! [e24s14_cp]
 
 #if defined(_DEBUG)

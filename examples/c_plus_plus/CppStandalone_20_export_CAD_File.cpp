@@ -76,7 +76,7 @@ int RunApplication()
 	// Add your custom code here...
 
 	// Load a non-sequential file
-	TheSystem->LoadFile(TheApplication->SamplesDir + "\\Non-Sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zos", false);
+	TheSystem->LoadFile(TheApplication->SamplesDir + "\\Non-Sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zmx", false);
 
 
 	//! [e20s01_cp]

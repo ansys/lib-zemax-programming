@@ -50,7 +50,7 @@ import ZOSAPI.*;
     % Set up primary optical system
     TheSystem = TheApplication.CreateNewSystem(ZOSAPI.SystemType.Sequential);
     sampleDir = TheApplication.SamplesDir;
-    testFile = System.String.Concat(sampleDir, '\Sequential\Objectives\Double Gauss 28 degree field.zos');
+    testFile = System.String.Concat(sampleDir, '\Sequential\Objectives\Double Gauss 28 degree field.zmx');
     TheSystem.LoadFile(testFile, false);
     
     max_rays = 150;

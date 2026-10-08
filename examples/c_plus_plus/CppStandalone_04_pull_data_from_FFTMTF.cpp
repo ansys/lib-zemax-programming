@@ -86,7 +86,7 @@ int RunApplication()
 	
     //! [e04s01_cp]
     // Open file
-	_bstr_t testFile = sampleDir + "\\Sequential\\Objectives\\Cooke 40 degree field.zos";
+	_bstr_t testFile = sampleDir + "\\Sequential\\Objectives\\Cooke 40 degree field.zmx";
 	TheSystem->LoadFile(testFile, false);
     //! [e04s01_cp]
     

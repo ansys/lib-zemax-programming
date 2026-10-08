@@ -56,9 +56,9 @@ import ZOSAPI.*;
     
 	%! [e10s01_m]
     % Open File, Save to New Name
-    file = '\\Non-Sequential\\Ray Splitting\\Beam splitter.zos';
+    file = '\\Non-Sequential\\Ray Splitting\\Beam splitter.zmx';
     TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir, file), false);
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e10_NSC_ray_trace.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e10_NSC_ray_trace.zmx'));
 	%! [e10s01_m]
     
     %! [e10s02_m]

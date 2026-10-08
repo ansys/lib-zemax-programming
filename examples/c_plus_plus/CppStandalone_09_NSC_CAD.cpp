@@ -84,7 +84,7 @@ int RunApplication()
 	//  Open new Non-Sequential system and save
 	TheSystem = TheApplication->CreateNewSystem(SystemType_NonSequential);
 	//  Define file path and name
-	_bstr_t filename = TheApplication->SamplesDir + "\\API\\CPP\\e09_NSC_CAD.zos";
+	_bstr_t filename = TheApplication->SamplesDir + "\\API\\CPP\\e09_NSC_CAD.zmx";
 	//  Save New NSC File
 	TheSystem->SaveAs(filename);
 	//! [e09s01_cp]

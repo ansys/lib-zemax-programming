@@ -96,7 +96,7 @@ int RunApplication()
 
 	//! [e03s01_cp]
 	// Open file
-	_bstr_t testFile = sampleDir + (_bstr_t)"\\API\\CPP\\e01_new_file_and_quickfocus.zos";
+	_bstr_t testFile = sampleDir + (_bstr_t)"\\API\\CPP\\e01_new_file_and_quickfocus.zmx";
 	if (!fileExists(testFile)) {
 		cout << "You need to run Example 01 before running this example" << endl;
 #if defined(_DEBUG)
@@ -106,7 +106,7 @@ int RunApplication()
 		return false;
 	}
 	TheSystem->LoadFile(testFile, false);
-	_bstr_t testFile2 = sampleDir + (_bstr_t)"\\API\\CPP\\e03_open_file_and_optimise.zos";
+	_bstr_t testFile2 = sampleDir + (_bstr_t)"\\API\\CPP\\e03_open_file_and_optimise.zmx";
 	TheSystem->SaveAs(testFile2);
 	//! [e03s01_cp]
 

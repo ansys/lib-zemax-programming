@@ -65,7 +65,7 @@ import ZOSAPI.*;
     %! [e17s02_m]
     % Define Path Locations
     SamplesFolder = TheApplication.SamplesDir;
-    SampleFile = System.String.Concat(SamplesFolder, '\API\Matlab\e17_NSC_BulkScatter.zos');
+    SampleFile = System.String.Concat(SamplesFolder, '\API\Matlab\e17_NSC_BulkScatter.zmx');
     TheSystem.SaveAs(SampleFile)
     %! [e17s02_m]
     

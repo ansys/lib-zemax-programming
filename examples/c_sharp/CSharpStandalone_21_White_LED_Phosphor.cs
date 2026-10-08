@@ -270,7 +270,7 @@ namespace CSharpStandaloneApplication
             //! [e21s13_cs]
 
 
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e21_White_LED_Phosphor.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e21_White_LED_Phosphor.zmx");
 
             Console.Write("Press any key to continue...");
             Console.ReadKey();

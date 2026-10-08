@@ -158,7 +158,7 @@ namespace CSharpStandaloneApplication
             System.IO.File.WriteAllText(resFile, sbReport.ToString());
             //! [e06s06_cs]
 
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e06_nsc_phase.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e06_nsc_phase.zmx");
 
             // Clean up
             FinishStandaloneApplication(TheApplication);
