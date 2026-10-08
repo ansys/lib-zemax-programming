@@ -83,7 +83,7 @@ int RunApplication()
 	// Create New Sequential File
 	TheSystem->New(false);
 	// Name File
-	_bstr_t fileName = TheApplication->SamplesDir + "\\API\\CPP\\e11_basic_seq.zos";
+	_bstr_t fileName = TheApplication->SamplesDir + "\\API\\CPP\\e11_basic_seq.zmx";
 	TheSystem->SaveAs(fileName);
 	//! [e11s01_cp]
 

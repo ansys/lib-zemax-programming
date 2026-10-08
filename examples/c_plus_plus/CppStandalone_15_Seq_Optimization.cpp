@@ -91,14 +91,14 @@ int RunApplication()
 
 	//! [e15s01_cp]
 	// Load a double gauss design sample file
-	TheSystem->LoadFile(_bstr_t(TheApplication->SamplesDir + "\\Short course\\Optical System Design Using OpticStudio\\sc_dbga1.zos"), false);
+	TheSystem->LoadFile(_bstr_t(TheApplication->SamplesDir + "\\Short course\\Optical System Design Using OpticStudio\\sc_dbga1.zmx"), false);
 	cout << "Double Gauss Design:" << endl;
 	//! [e15s01_cp]
 
 	//! [e15s02_cp]
 	// Define path locations
 	_bstr_t SamplesFolder = TheApplication->SamplesDir;
-	_bstr_t SampleFile = TheApplication->SamplesDir + "\\API\\CPP\\e15_Seq_Optimization\\OptimizedFile.zos";
+	_bstr_t SampleFile = TheApplication->SamplesDir + "\\API\\CPP\\e15_Seq_Optimization\\OptimizedFile.zmx";
 	CreateDirectory(_bstr_t(TheApplication->SamplesDir + "\\API\\CPP\\e15_Seq_Optimization"), NULL);
 	TheSystem->SaveAs(SampleFile);
 	//! [e15s02_cp]
@@ -161,7 +161,7 @@ int RunApplication()
 	ISolveDataPtr Solver = Surface_Last->RadiusCell->CreateSolveType(SolveType::SolveType_FNumber);
 	Solver->_S_FNumber->FNumber = 3.1415;
 	Surface_Last->RadiusCell->SetSolveData(Solver);
-	SampleFile = _bstr_t(TheApplication->SamplesDir) + "\\API\\\Seq_Optimization\\\OptimizedFile1.zos";
+	SampleFile = _bstr_t(TheApplication->SamplesDir) + "\\API\\\Seq_Optimization\\\OptimizedFile1.zmx";
 	TheSystem->SaveAs(SampleFile);
 	//! [e15s07_cp]
 
@@ -174,7 +174,7 @@ int RunApplication()
 	ISystemToolPtr baseTool = QFocus;
 	baseTool->RunAndWaitForCompletion();
 	baseTool->Close();
-	SampleFile = _bstr_t(TheApplication->SamplesDir) + "\\API\\CPP\\e15_Seq_Optimization\\OptimizedFile2.zos";
+	SampleFile = _bstr_t(TheApplication->SamplesDir) + "\\API\\CPP\\e15_Seq_Optimization\\OptimizedFile2.zmx";
 	TheSystem->SaveAs(SampleFile);
 	//! [e15s08_cp]
 
@@ -207,7 +207,7 @@ int RunApplication()
 	SolverPickup->ScaleFactor = 1;
 	SolverPickup->Column = SurfaceColumn::SurfaceColumn_Thickness;
 	Surface10->ThicknessCell->SetSolveData(Solver);
-	SampleFile = _bstr_t(TheApplication->SamplesDir + "\\API\\CPP\\e15_Seq_Optimization\\OptimizedFile3.zos");
+	SampleFile = _bstr_t(TheApplication->SamplesDir + "\\API\\CPP\\e15_Seq_Optimization\\OptimizedFile3.zmx");
 	TheSystem->SaveAs(SampleFile);
 	//! [e15s11_cp]
 
@@ -238,7 +238,7 @@ int RunApplication()
 	_bstr_t mf_filename = _bstr_t(TheApplication->SamplesDir + "\\API\\CPP\\e15_Seq_Optimization\\RMS_Spot_Radius.mf");
 	TheMFE->SaveMeritFunction(mf_filename);
 	TheMFE->LoadMeritFunction(mf_filename);
-	SampleFile = _bstr_t(TheApplication->SamplesDir + "\\API\\CPP\\e15_Seq_Optimization\\OptimizedFile4.zos");
+	SampleFile = _bstr_t(TheApplication->SamplesDir + "\\API\\CPP\\e15_Seq_Optimization\\OptimizedFile4.zmx");
 	TheSystem->SaveAs(SampleFile);
 	//! [e15s12_cp]
 

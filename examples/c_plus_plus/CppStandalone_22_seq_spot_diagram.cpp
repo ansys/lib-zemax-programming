@@ -86,7 +86,7 @@ int RunApplication()
 
 	// Set up primary optical system
 	_bstr_t sampleDir = TheApplication->SamplesDir;
-	_bstr_t testFile = sampleDir + "\\Sequential\\Objectives\\Double Gauss 28 degree field.zos";
+	_bstr_t testFile = sampleDir + "\\Sequential\\Objectives\\Double Gauss 28 degree field.zmx";
 	TheSystem->LoadFile(testFile, false);
 
 	//! [e22s01_cp]

@@ -55,13 +55,13 @@ import ZOSAPI.*;
     TheSystem = TheApplication.PrimarySystem;
     
     %! [e15s01_m]
-	b_load = TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir,'\Short course\Optical System Design Using OpticStudio\sc_dbga1.zos'), false);
+	b_load = TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir,'\Short course\Optical System Design Using OpticStudio\sc_dbga1.zmx'), false);
     fprintf('\nDouble Gauss Design:\n');
     %! [e15s01_m]
     
     %! [e15s02_m]
     %Define path locations
-    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile.zos');
+    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile.zmx');
     TheSystem.SaveAs(SampleFile);
     %! [e15s02_m]
     
@@ -120,7 +120,7 @@ import ZOSAPI.*;
     Solver = Surface_Last.RadiusCell.CreateSolveType(ZOSAPI.Editors.SolveType.FNumber);
     Solver.S_FNumber_.FNumber = 3.1415;
     Surface_Last.RadiusCell.SetSolveData(Solver);
-    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile1.zos');
+    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile1.zmx');
     TheSystem.SaveAs(SampleFile);
     %! [e15s07_m]
     
@@ -132,7 +132,7 @@ import ZOSAPI.*;
     QFocus.UseCentroid = true;
     QFocus.RunAndWaitForCompletion();
     QFocus.Close();
-    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile2.zos');
+    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile2.zmx');
     TheSystem.SaveAs(SampleFile);
     %! [e15s08_m]
     
@@ -165,7 +165,7 @@ import ZOSAPI.*;
     SolverPickup.ScaleFactor = 1;
     SolverPickup.Column = ZOSAPI.Editors.LDE.SurfaceColumn.Thickness;
     Surface10.ThicknessCell.SetSolveData(Solver);
-    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile3.zos');
+    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile3.zmx');
     TheSystem.SaveAs(SampleFile);
     %! [e15s11_m]
     
@@ -194,7 +194,7 @@ import ZOSAPI.*;
     mf_filename = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\RMS_Spot_Radius.mf');
     TheMFE.SaveMeritFunction(mf_filename);
     TheMFE.LoadMeritFunction(mf_filename);
-    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile4.zos');
+    SampleFile = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e15_Seq_Optimization\OptimizedFile4.zmx');
     %! [e15s12_m]
     
     %! [e15s13_m]

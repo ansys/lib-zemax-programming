@@ -154,7 +154,7 @@ namespace CSharpStandaloneApplication
                 TheLDE.CopySurfaces(2, 3, 5);
             }
             // Save file
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e19_Sample_Prism_Chain.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e19_Sample_Prism_Chain.zmx");
             //! [e19s07_cs]
 
 
@@ -162,13 +162,13 @@ namespace CSharpStandaloneApplication
             //! [e19s08_cs]
             // Run tool Convert Local To Global Coordinates to convert surface #2 to surface #35 to be globally referenced to surface #1
             TheLDE.RunTool_ConvertLocalToGlobalCoordinates(2, 35, 1);
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e19_Sample_Prism_Chain_GlobalCoordinate.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e19_Sample_Prism_Chain_GlobalCoordinate.zmx");
             //! [e19s08_cs]
 
             //! [e19s09_cs]
             // Run tool Conver Global To Local Coordinates to convert surface #1 to surface #57 back to local coordinate.
             TheLDE.RunTool_ConvertGlobalToLocalCoordinates(1, 57, 0);
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e19_Sample_Prism_Chain_BackTo_LocalCoordinate.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e19_Sample_Prism_Chain_BackTo_LocalCoordinate.zmx");
             //! [e19s09_cs]
 
             Console.Write("Press any key to continue...");

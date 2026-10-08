@@ -50,7 +50,7 @@ import ZOSAPI.*;
 TheSystem = TheApplication.PrimarySystem;
 
 % Add your custom code here...
-FilePath = System.String.Concat(TheApplication.ZemaxDataDir, '\Samples\Sequential\Objectives\Cooke 40 degree field.zos');
+FilePath = System.String.Concat(TheApplication.ZemaxDataDir, '\Samples\Sequential\Objectives\Cooke 40 degree field.zmx');
 TheSystem.LoadFile(FilePath, false);
 
 %! [e07s01_m]
@@ -132,7 +132,7 @@ for x = 1:3
 end
 %! [e07s06_m]  
 
-OutFilePath = System.String.Concat(TheApplication.ZemaxDataDir, '\Samples\API\MATLAB\MATLAB_07_TiltDecenterAndMFOperand.zos');
+OutFilePath = System.String.Concat(TheApplication.ZemaxDataDir, '\Samples\API\MATLAB\MATLAB_07_TiltDecenterAndMFOperand.zmx');
 TheSystem.SaveAs(OutFilePath);
 
 r = [];

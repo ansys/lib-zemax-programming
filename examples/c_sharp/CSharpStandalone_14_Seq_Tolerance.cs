@@ -80,7 +80,7 @@ namespace CSharpStandaloneApplication
             //! [e14s01_cs]
             // Open Double Gauss sample file
             string samplesFolder = TheApplication.SamplesDir;
-            string DGfile = System.IO.Path.Combine(samplesFolder, "Sequential\\Objectives\\Double Gauss 28 degree field.zos");
+            string DGfile = System.IO.Path.Combine(samplesFolder, "Sequential\\Objectives\\Double Gauss 28 degree field.zmx");
             TheSystem.LoadFile(DGfile, false);
             //! [e14s01_cs]
 
@@ -112,7 +112,7 @@ namespace CSharpStandaloneApplication
             string dirLoc = System.IO.Path.Combine(samplesFolder, "API\\CS\\e14_seq_tolerance");
             System.IO.Directory.CreateDirectory(dirLoc);
             // Save a copy of the file in the Double Gauss folder
-            string fileNameSeq = System.IO.Path.Combine(dirLoc, "Double Gauss (seq).zos");
+            string fileNameSeq = System.IO.Path.Combine(dirLoc, "Double Gauss (seq).zmx");
             TheSystem.SaveAs(fileNameSeq);
             //! [e14s03_cs]
 
@@ -142,7 +142,7 @@ namespace CSharpStandaloneApplication
             convertNSmode.RunAndWaitForCompletion();
             convertNSmode.Close();
             // Save the Non-sequential file to the Double Gauss folder
-            string fileNameNS = System.IO.Path.Combine(dirLoc, "Double Gauss (NS).zos");
+            string fileNameNS = System.IO.Path.Combine(dirLoc, "Double Gauss (NS).zmx");
             TheSystem.SaveAs(fileNameNS);
             //! [e14s05_cs]
 

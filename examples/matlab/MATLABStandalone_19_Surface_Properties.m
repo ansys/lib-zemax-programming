@@ -125,23 +125,23 @@ import ZOSAPI.*;
         TheLDE.CopySurfaces(2, 3, 5);
     end
     % Save file
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e19_Sample_Prism_Chain.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e19_Sample_Prism_Chain.zmx'));
     %! [e19s07_m]
     
     %! [e19s08_m]
     % Run tool Convert Local To Global Coordinates to convert surface #2 to surface #35 to be globally referenced to surface #1
     TheLDE.RunTool_ConvertLocalToGlobalCoordinates(2, 35, 1);
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e19_Sample_Prism_Chain_GlobalCoordinate.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e19_Sample_Prism_Chain_GlobalCoordinate.zmx'));
     %! [e19s08_m]
 
     %! [e19s09_m]
     % Run tool Conver Global To Local Coordinates to convert surface #1 to surface #57 back to local coordinate.
     TheLDE.RunTool_ConvertGlobalToLocalCoordinates(1, 57, ZOSAPI.Editors.LDE.ConversionOrder.Forward);
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e19_Sample_Prism_Chain_BackTo_LocalCoordinate.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e19_Sample_Prism_Chain_BackTo_LocalCoordinate.zmx'));
     %! [e19s09_m]
     
     
-    TheSystem.SaveAs('c:\temp\sc.zos');
+    TheSystem.SaveAs('c:\temp\sc.zmx');
     
     r = [];
 end

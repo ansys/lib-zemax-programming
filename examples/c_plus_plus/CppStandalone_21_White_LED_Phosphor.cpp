@@ -269,7 +269,7 @@ int RunApplication()
 	//! [e21s13_cp]
 
 
-	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e21_White_LED_Phosphor.zos");
+	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e21_White_LED_Phosphor.zmx");
 #if defined(_DEBUG)
 	// keeps console open when in debug mode
 	system("pause");

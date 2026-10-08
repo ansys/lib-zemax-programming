@@ -115,7 +115,7 @@ import ZOSAPI.*;
     sysUnits.LensUnits = ZOSAPI.SystemData.ZemaxSystemUnits.Inches;
     %! [e12s08_m]
     
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e12_seq_system_explorer.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e12_seq_system_explorer.zmx'));
     
     r = [];
 end

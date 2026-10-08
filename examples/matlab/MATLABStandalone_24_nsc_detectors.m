@@ -157,7 +157,7 @@ import ZOSAPI.*;
     %! [e24s09_m]
     
     % saves file to disk to expose all objects
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e24_nsc_detectors.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e24_nsc_detectors.zmx'));
     
     tic;
     %! [e24s10_m]

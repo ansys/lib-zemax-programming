@@ -87,9 +87,9 @@ namespace CSharpStandaloneApplication
 
             //! [e10s01_cs]
             // Open File, Save to New Name
-            string file = "\\Non-Sequential\\Ray Splitting\\Beam splitter.zos";
+            string file = "\\Non-Sequential\\Ray Splitting\\Beam splitter.zmx";
             TheSystem.LoadFile(TheApplication.SamplesDir + file, false);
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e10_NSC_ray_trace.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e10_NSC_ray_trace.zmx");
             //! [e10s01_cs]
 
             //! [e10s02_cs]

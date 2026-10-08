@@ -81,7 +81,7 @@ int RunApplication()
 
 	// Set up primary optical system
 	_bstr_t sampleDir = TheApplication->SamplesDir;
-	_bstr_t testFile = sampleDir + (_bstr_t)"\\API\\CPP\\e01_new_file_and_quickfocus.zos";
+	_bstr_t testFile = sampleDir + (_bstr_t)"\\API\\CPP\\e01_new_file_and_quickfocus.zmx";
 
 	//! [e01s01_cp]
 	// Make new file
