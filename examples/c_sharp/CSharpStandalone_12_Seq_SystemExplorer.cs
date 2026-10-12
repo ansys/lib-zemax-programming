@@ -138,7 +138,7 @@ namespace CSharpStandaloneApplication
             sysUnits.LensUnits = ZOSAPI.SystemData.ZemaxSystemUnits.Inches;
             //! [e12s08_cs]
 
-            String file = "\\API\\CS\\e12_seq_system_explorer.zos";
+            String file = "\\API\\CS\\e12_seq_system_explorer.zmx";
             TheSystem.SaveAs(TheApplication.SamplesDir + file);
 
             // Clean up

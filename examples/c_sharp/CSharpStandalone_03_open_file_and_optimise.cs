@@ -88,7 +88,7 @@ namespace CSharpStandaloneApplication
 
             //! [e03s01_cs]
             // Open file & save a copy
-            string testFile = sampleDir + "\\API\\CS\\e01_new_file_and_quickfocus.zos";
+            string testFile = sampleDir + "\\API\\CS\\e01_new_file_and_quickfocus.zmx";
             if (!System.IO.File.Exists(testFile))
             {
                 Console.WriteLine("You need to run Example 01 before running this example");
@@ -96,7 +96,7 @@ namespace CSharpStandaloneApplication
                 return;
             }
             TheSystem.LoadFile(testFile, false);
-            string testFile2 = sampleDir + "\\API\\CS\\e03_open_file_and_optimise.zos";
+            string testFile2 = sampleDir + "\\API\\CS\\e03_open_file_and_optimise.zmx";
             TheSystem.SaveAs(testFile2);
             //! [e03s01_cs]
 

@@ -227,7 +227,7 @@ namespace CSharpStandaloneApplication
                 sbReport.Clear();
             }
 
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e25_source_spectrum_diffraction_grating.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e25_source_spectrum_diffraction_grating.zmx");
 
             // Clean up
             FinishStandaloneApplication(TheApplication);

@@ -81,9 +81,9 @@ int RunApplication()
 
 	//! [e10s01_cp]
 	// Open File, Save to New Name
-	_bstr_t file = "\\Non-Sequential\\Ray Splitting\\Beam splitter.zos";
+	_bstr_t file = "\\Non-Sequential\\Ray Splitting\\Beam splitter.zmx";
 	TheSystem->LoadFile(TheApplication->SamplesDir + file, false);
-	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e10_NSC_ray_trace.zos");
+	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e10_NSC_ray_trace.zmx");
 	//! [e10s01_cp]
 
 	//! [e10s02_cp]

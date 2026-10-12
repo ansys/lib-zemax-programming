@@ -179,7 +179,7 @@ int RunApplication()
 
 	textfile.close();
 
-	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e06_nsc_phase.zos");
+	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e06_nsc_phase.zmx");
 
 	// Clean up
 	finishStandaloneApplication(TheApplication);

@@ -57,7 +57,7 @@ import ZOSAPI.*;
     %! [e14s01_m]
     % Open Double Gauss sample file
     samplesFolder = TheApplication.SamplesDir;
-    DGfile = System.String.Concat(samplesFolder, '\Sequential\Objectives\Double Gauss 28 degree field.zos');
+    DGfile = System.String.Concat(samplesFolder, '\Sequential\Objectives\Double Gauss 28 degree field.zmx');
     TheSystem.LoadFile(DGfile, false);
     %! [e14s01_m]
     
@@ -89,7 +89,7 @@ import ZOSAPI.*;
     dirLoc = System.String.Concat(samplesFolder, '\API\Matlab\e14_seq_tolerance');
     if (exist(char(dirLoc)) == 0) mkdir(char(dirLoc)); end;
     % Save a copy of the file in the Double Gauss folder
-    fileNameSeq = System.String.Concat(dirLoc, '\Double Gauss (seq).zos');
+    fileNameSeq = System.String.Concat(dirLoc, '\Double Gauss (seq).zmx');
     TheSystem.SaveAs(fileNameSeq);
     %! [e14s03_m]
     
@@ -119,7 +119,7 @@ import ZOSAPI.*;
     convertNSmode.RunAndWaitForCompletion();
     convertNSmode.Close();
     % Save the Non-sequential file to the Double Gauss folder
-    fileNameNS = System.String.Concat(dirLoc, '\Double Gauss (NS).zos');
+    fileNameNS = System.String.Concat(dirLoc, '\Double Gauss (NS).zmx');
     TheSystem.SaveAs(fileNameNS);
     %! [e14s05_m]
     

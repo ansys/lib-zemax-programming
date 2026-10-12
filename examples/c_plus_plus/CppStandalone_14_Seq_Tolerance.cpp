@@ -89,7 +89,7 @@ int RunApplication()
 	//! [e14s01_cp]
 	// Open Double Gauss sample file
 	_bstr_t samplesFolder = TheApplication->SamplesDir;
-	_bstr_t DGfile = samplesFolder + (_bstr_t)"\\Sequential\\Objectives\\Double Gauss 28 degree field.zos";
+	_bstr_t DGfile = samplesFolder + (_bstr_t)"\\Sequential\\Objectives\\Double Gauss 28 degree field.zmx";
 	TheSystem->LoadFile(DGfile, false);
 	//! [e14s01_cp]
 
@@ -122,7 +122,7 @@ int RunApplication()
 	_bstr_t dirLoc = samplesFolder + (_bstr_t)"\\API\\CPP\\e14_seq_tolerance";
 	CreateDirectory(dirLoc, NULL);
 	// Save a copy of the file in the Double Gauss folder
-	_bstr_t fileNameSeq = dirLoc + (_bstr_t)"\\Double_Gauss_(seq).zos";
+	_bstr_t fileNameSeq = dirLoc + (_bstr_t)"\\Double_Gauss_(seq).zmx";
 	TheSystem->SaveAs(fileNameSeq);
 	//! [e14s03_cp]
 
@@ -154,7 +154,7 @@ int RunApplication()
 	baseTool2->RunAndWaitForCompletion();
 	baseTool2->Close();
 	// Save the Non-sequential file to the Double Gauss folder
-	_bstr_t fileNameNS = dirLoc + (_bstr_t)"\\Double_Gauss_(NS).zos";
+	_bstr_t fileNameNS = dirLoc + (_bstr_t)"\\Double_Gauss_(NS).zmx";
 	TheSystem->SaveAs(fileNameNS);
 	//! [e14s05_cp]    
 

@@ -54,7 +54,7 @@ import ZOSAPI.*;
     %! [e09s01_m]
     % Open new Non-Sequential system and save
     TheSystem = TheApplication.CreateNewSystem(ZOSAPI.SystemType.NonSequential);    % Create New NSC File
-    filename = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e09_NSC_CAD.zos');   % Define file path and name
+    filename = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e09_NSC_CAD.zmx');   % Define file path and name
     TheSystem.SaveAs(filename);  % Save New NSC File
     %! [e09s01_m]
     

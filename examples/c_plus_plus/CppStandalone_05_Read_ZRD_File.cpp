@@ -77,7 +77,7 @@ int RunApplication()
 
 	// Open file and set Analysis Ryas to only 10
 	_bstr_t sampleDir = TheApplication->SamplesDir;
-	_bstr_t testFile = sampleDir + "\\Non-sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zos";
+	_bstr_t testFile = sampleDir + "\\Non-sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zmx";
 	TheSystem->LoadFile(testFile, false);
 	TheSystem->NCE->GetObjectAt(1)->GetObjectCell(ObjectColumn_Par2)->IntegerValue = 10;
 

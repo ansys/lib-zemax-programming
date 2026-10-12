@@ -204,7 +204,7 @@ import ZOSAPI.*;
         title(str);
     end
     
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e25_source_spectrum_diffraction_grating.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e25_source_spectrum_diffraction_grating.zmx'));
 
     r = [];
 end

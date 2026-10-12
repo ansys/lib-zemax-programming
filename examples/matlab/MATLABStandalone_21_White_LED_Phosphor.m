@@ -241,7 +241,7 @@ import ZOSAPI.*;
     Det2.ApplyAndWaitForCompletion();
     %! [e21s13_m]
     
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e21_White_LED_Phosphor.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e21_White_LED_Phosphor.zmx'));
     
     r = [];
 end

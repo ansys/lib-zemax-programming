@@ -82,7 +82,7 @@ namespace CSharpStandaloneApplication
             System.IO.Directory.CreateDirectory(strPath);
 
             // Add your custom code here...
-            TheSystem.LoadFile(TheApplication.SamplesDir + "\\Sequential\\Objectives\\Double Gauss 28 degree field.zos", false);
+            TheSystem.LoadFile(TheApplication.SamplesDir + "\\Sequential\\Objectives\\Double Gauss 28 degree field.zmx", false);
 
             // Get interface of the Multi-Configuration Editor
             IMultiConfigEditor TheMCE = TheSystem.MCE;
@@ -131,11 +131,11 @@ namespace CSharpStandaloneApplication
             quickfocus.RunAndWaitForCompletion();
             //! [e18s06_cs]
 
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e18_Double_Gauss_28_degree_field_MultiConfig.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e18_Double_Gauss_28_degree_field_MultiConfig.zmx");
 
             //! [e18s07_cs]
             // An exmple of manually "Make Thermal"
-            TheSystem.LoadFile(TheApplication.SamplesDir + "\\Sequential\\Objectives\\Doublet.zos", false);
+            TheSystem.LoadFile(TheApplication.SamplesDir + "\\Sequential\\Objectives\\Doublet.zmx", false);
             // Add 1 configuration (totally 2)
             TheMCE.AddConfiguration(false);
             // Add 12 operand (totally 13)
@@ -186,7 +186,7 @@ namespace CSharpStandaloneApplication
             TheSystemData.Environment.AdjustIndexToEnvironment = true;
 
             // Save the system
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e18_Doublet_MakeTermal.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e18_Doublet_MakeTermal.zmx");
             //! [e18s07_cs]
 
 

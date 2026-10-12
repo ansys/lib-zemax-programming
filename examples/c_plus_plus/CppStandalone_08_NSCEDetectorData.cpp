@@ -80,7 +80,7 @@ int RunApplication()
 	// Add your custom code here...
 
 	/*
-	-. load \Samples\NS\Scattering\ABg scattering surface.zos
+	-. load \Samples\NS\Scattering\ABg scattering surface.zmx
 	1. delete object 3(specular ray blocking)
 	2. insert detector polar positioned at same pos as object 2
 		- retrieve obj 2 rotation matrix, match orientation
@@ -99,7 +99,7 @@ int RunApplication()
 		- retrieve data grid (all pixels) with GetAllCoherentData()
 	*/
 
-	_bstr_t file = "\\Samples\\Non-Sequential\\Scattering\\Abg scattering surface.zos";
+	_bstr_t file = "\\Samples\\Non-Sequential\\Scattering\\Abg scattering surface.zmx";
 	_bstr_t DataDir = TheApplication->ZemaxDataDir;
 	_bstr_t filepath = DataDir + file;
 	TheSystem->LoadFile(filepath, false);
@@ -240,7 +240,7 @@ int RunApplication()
 	bool SuccessCoherentPow = TheSystem->NCE->GetAllCoherentData(4, DetectorDataType::DetectorDataType_Power, 14400, DetRectangleData_CoherentPower);
 	// ![e08s10_cp]
 
-	_bstr_t OutFile = "\\Samples\\API\\CPP\\CPP_08_NSCEDetectorData.zos";
+	_bstr_t OutFile = "\\Samples\\API\\CPP\\CPP_08_NSCEDetectorData.zmx";
 	_bstr_t OutFilePath = DataDir + OutFile;
 	TheSystem->SaveAs(OutFilePath);
 

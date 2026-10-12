@@ -79,7 +79,7 @@ namespace CSharpStandaloneApplication
 
             // Add your custom code here...
             // NSC (bulk_volume)
-            // This example recreates Non-sequential\Scattering\Bulk Scatter.zos
+            // This example recreates Non-sequential\Scattering\Bulk Scatter.zmx
 
             // creates new directory
             string strPath = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS");
@@ -96,7 +96,7 @@ namespace CSharpStandaloneApplication
             //! [e17s02_cs]
             //Define path locations
             string SamplesFolder = TheApplication.SamplesDir;
-            string SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, "API\\CS\\e17_NSC_BulkdScatter.zos");
+            string SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, "API\\CS\\e17_NSC_BulkdScatter.zmx");
             TheSystem.SaveAs(SampleFile);
             //! [e17s02_cs]
 

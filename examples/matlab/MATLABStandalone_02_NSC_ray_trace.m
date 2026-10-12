@@ -57,7 +57,7 @@ import ZOSAPI.*;
     
     %! [e02s01_m]
     % Open file
-    testFile = System.String.Concat(sampleDir, '\Non-sequential\Miscellaneous\Digital_projector_flys_eye_homogenizer.zos');
+    testFile = System.String.Concat(sampleDir, '\Non-sequential\Miscellaneous\Digital_projector_flys_eye_homogenizer.zmx');
     TheSystem.LoadFile(testFile, false);
     %! [e02s01_m]
     

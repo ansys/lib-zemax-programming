@@ -57,14 +57,14 @@ import ZOSAPI.*;
     
     %! [e03s01_m]
     % Open file
-    testFile = System.String.Concat(sampleDir, '\API\Matlab\e01_new_file_and_quickfocus.zos');
+    testFile = System.String.Concat(sampleDir, '\API\Matlab\e01_new_file_and_quickfocus.zmx');
     if (exist(char(testFile)) == 0)
         fprintf('You need to run Example 01 before running this example\n');
         r = [];
         return;
     end
     TheSystem.LoadFile(testFile,false);
-    testFile2 = System.String.Concat(sampleDir, '\API\Matlab\e03_open_file_and_optimise.zos');
+    testFile2 = System.String.Concat(sampleDir, '\API\Matlab\e03_open_file_and_optimise.zmx');
     TheSystem.SaveAs(testFile2);
     %! [e03s01_m]
     

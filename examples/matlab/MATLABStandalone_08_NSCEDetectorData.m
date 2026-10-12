@@ -51,7 +51,7 @@ TheSystem = TheApplication.PrimarySystem;
 
 % Add your custom code here...
 %{   
--. load \Samples\Non-Sequential\Scattering\ABg scattering surface.zos
+-. load \Samples\Non-Sequential\Scattering\ABg scattering surface.zmx
 1. delete object 3 (specular ray blocking)
 2. insert detector polar positioned at same pos as object 2
       - retrieve obj 2 rotation matrix, match orientation
@@ -69,7 +69,7 @@ TheSystem = TheApplication.PrimarySystem;
       - retrieve single-value data with GetCoherentData()
       - retrieve data grid (all pixels) with GetAllCoherentDataSafe()
 %}
-file = '\Samples\Non-sequential\Scattering\ABg scattering surface.zos';
+file = '\Samples\Non-sequential\Scattering\ABg scattering surface.zmx';
 DataDir = TheApplication.ZemaxDataDir;
 filepath = System.String.Concat(DataDir, file);
 TheSystem.LoadFile(filepath, false);
@@ -196,7 +196,7 @@ DetRectangleData_FluxSAP = TheSystem.NCE.GetAllDetectorDataSafe(4, 2).double; % 
 DetRectangle_CoherentPowerFull = TheSystem.NCE.GetAllCoherentDataSafe(4, ZOSAPI.Editors.NCE.DetectorDataType.Power).double;  % obj=4, data=3 
 %! [e08s10_m]
 
-OutFile = System.String.Concat(DataDir, '\Samples\API\MATLAB\MATLAB_08_NSCEDetectorData.zos');
+OutFile = System.String.Concat(DataDir, '\Samples\API\MATLAB\MATLAB_08_NSCEDetectorData.zmx');
 TheSystem.SaveAs(OutFile);
 
 % from here, we can plot or analyze any detector data we want!

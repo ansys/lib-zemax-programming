@@ -59,7 +59,7 @@ import ZOSAPI.*;
     % Create New Sequential File
     TheSystem.New(false);
     % Name File
-    fileName = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e11_basic_seq.zos');
+    fileName = System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e11_basic_seq.zmx');
     TheSystem.SaveAs(fileName);
     %! [e11s01_m]
 

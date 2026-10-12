@@ -77,7 +77,7 @@ int RunApplication()
 	// creates a new API directory
 	CreateDirectory(_bstr_t(TheApplication->SamplesDir + "\\API"), NULL);
 	CreateDirectory(_bstr_t(TheApplication->SamplesDir + "\\API\\CPP"), NULL);
-	_bstr_t FilePath = TheApplication->ZemaxDataDir + (_bstr_t)"\\Samples\\Sequential\\Objectives\\Cooke 40 degree field.zos";
+	_bstr_t FilePath = TheApplication->ZemaxDataDir + (_bstr_t)"\\Samples\\Sequential\\Objectives\\Cooke 40 degree field.zmx";
 	TheSystem->LoadFile(FilePath, false);
 
 	//! [e07s01_cp]
@@ -166,7 +166,7 @@ int RunApplication()
 	//! [e07s06_cp]
 
 	// save the file
-	_bstr_t OutFilePath = TheApplication->ZemaxDataDir + (_bstr_t)"\\Samples\\API\\CPP\\CPP_07_TiltDecenterAndMFOperand.zos";
+	_bstr_t OutFilePath = TheApplication->ZemaxDataDir + (_bstr_t)"\\Samples\\API\\CPP\\CPP_07_TiltDecenterAndMFOperand.zmx";
 	TheSystem->SaveAs(OutFilePath);
 
 	// Clean up

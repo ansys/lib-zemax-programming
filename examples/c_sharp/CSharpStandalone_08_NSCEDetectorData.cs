@@ -75,7 +75,7 @@ namespace CSharpStandaloneApplication1
 
             // Add your custom code here...
             /* 
-            -. load \Samples\NS\Scattering\ABg scattering surface.zos
+            -. load \Samples\NS\Scattering\ABg scattering surface.zmx
             1. delete object 3(specular ray blocking)
             2. insert detector polar positioned at same pos as object 2
                 - retrieve obj 2 rotation matrix, match orientation
@@ -94,7 +94,7 @@ namespace CSharpStandaloneApplication1
                 - retrieve data grid (all pixels) with GetAllCoherentDataSafe()
             */
 
-            string file = "\\Samples\\Non-sequential\\Scattering\\ABg scattering surface.zos";
+            string file = "\\Samples\\Non-sequential\\Scattering\\ABg scattering surface.zmx";
             string DataDir = TheApplication.ZemaxDataDir;
             string filepath = DataDir + file;
             TheSystem.LoadFile(filepath, false);
@@ -220,7 +220,7 @@ namespace CSharpStandaloneApplication1
             double[,] DetRectangle_CoherentPowerFull = TheSystem.NCE.GetAllCoherentDataSafe(4, ZOSAPI.Editors.NCE.DetectorDataType.Power); // obj=4, data=3
             //! [e08s10_cs]
 
-            string OutFile = DataDir + "\\Samples\\API\\CS\\CS_08_NSCEDetectorData.zos";
+            string OutFile = DataDir + "\\Samples\\API\\CS\\CS_08_NSCEDetectorData.zmx";
             TheSystem.SaveAs(OutFile);
 
             // from here, we can plot or analyze any detector data we want!

@@ -164,7 +164,7 @@ class PythonStandaloneApplication(object):
 def main(test = False, zos_path = None):
     zos = PythonStandaloneApplication(zos_path)
     
-    # - load \Samples\Non-Sequential\Scattering\Abg scattering surface.zos
+    # - load \Samples\Non-Sequential\Scattering\Abg scattering surface.zmx
     # 1. delete object 3 (specular ray blocking)
     # 2. insert detector polar position at same pos as object 2
     #   - retrieve object 2 rotation matrix, match orientation

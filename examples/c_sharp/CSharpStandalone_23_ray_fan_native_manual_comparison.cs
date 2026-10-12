@@ -79,7 +79,7 @@ namespace CSharpStandaloneApplication
 
             // Set up primary optical system
             string sampleDir = TheApplication.SamplesDir;
-            string testFile = System.IO.Path.Combine(sampleDir, "Sequential\\Objectives\\Double Gauss 28 degree field.zos");
+            string testFile = System.IO.Path.Combine(sampleDir, "Sequential\\Objectives\\Double Gauss 28 degree field.zmx");
             TheSystem.LoadFile(testFile, false);
 
             int max_rays = 150;

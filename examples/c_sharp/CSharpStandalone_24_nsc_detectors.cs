@@ -251,7 +251,7 @@ namespace CSharpStandaloneApplication
 
             //! [e24s14_cs]
             // Saves current system in memory
-            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e24_nsc_detectors.zos");
+            TheSystem.SaveAs(TheApplication.SamplesDir + "\\API\\CS\\e24_nsc_detectors.zmx");
             //! [e24s14_cs]
 
             Console.WriteLine("Press any key to continue...");

@@ -83,7 +83,7 @@ namespace CSharpStandaloneApplication
             //! [e09s01_cs]
             //  Open new NS system and save
             TheSystem = TheApplication.CreateNewSystem(SystemType.NonSequential);    //  Create New NSC File
-            String filename = TheApplication.SamplesDir + "\\API\\CS\\e09_NSC_CAD.zos";  //  Define file path and name
+            String filename = TheApplication.SamplesDir + "\\API\\CS\\e09_NSC_CAD.zmx";  //  Define file path and name
             //  Save New NSC File
             TheSystem.SaveAs(filename);
             //! [e09s01_cs]

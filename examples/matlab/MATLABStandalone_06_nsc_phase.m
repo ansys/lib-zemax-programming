@@ -129,7 +129,7 @@ import ZOSAPI.*;
     set(gca, 'XTick', '');
     set(gca, 'YTick', '');
     
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e06_nsc_phase.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e06_nsc_phase.zmx'));
     
     
     r = [];

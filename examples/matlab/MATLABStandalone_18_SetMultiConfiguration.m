@@ -55,7 +55,7 @@ import ZOSAPI.*;
     TheSystem = TheApplication.PrimarySystem;
     
     % Setup
-    TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir, '\Sequential\Objectives\Double Gauss 28 degree field.zos'), false);
+    TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir, '\Sequential\Objectives\Double Gauss 28 degree field.zmx'), false);
     TheMCE = TheSystem.MCE;
     
     %! [e18s01_m]
@@ -103,11 +103,11 @@ import ZOSAPI.*;
     quickfocus.RunAndWaitForCompletion();
     %! [e18s06_m]
     
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e18_Double_Gauss_28_degree_field_MultiConfig.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e18_Double_Gauss_28_degree_field_MultiConfig.zmx'));
 
     %! [e18s07_m]
     % An example of manually "Make Thermal"
-    TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir, '\Sequential\Objectives\Doublet.zos'), false);
+    TheSystem.LoadFile(System.String.Concat(TheApplication.SamplesDir, '\Sequential\Objectives\Doublet.zmx'), false);
     % Add 1 configuration (totally 2)
     TheMCE.AddConfiguration(false);
     % Add 12 operands (totally 13)
@@ -165,7 +165,7 @@ import ZOSAPI.*;
     TheSystemData = TheSystem.SystemData;
     TheSystemData.Environment.AdjustIndexToEnvironment = true;
     
-    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e18_Doublet_MakeTermal.zos'));
+    TheSystem.SaveAs(System.String.Concat(TheApplication.SamplesDir, '\API\Matlab\e18_Doublet_MakeTermal.zmx'));
     %! [e18s07_m]
     
     r = [];

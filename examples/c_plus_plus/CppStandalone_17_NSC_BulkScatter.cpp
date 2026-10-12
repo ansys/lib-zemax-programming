@@ -80,7 +80,7 @@ int RunApplication()
 	CreateDirectory(_bstr_t(TheApplication->SamplesDir + "\\API\\CPP"), NULL);
 
 	// NSC (bulk_volume)
-	// This example recreates Non-sequential\Scattering\Bulk Scatter.zos
+	// This example recreates Non-sequential\Scattering\Bulk Scatter.zmx
 
 	//! [e17s01_cp]
 	//Create a New File
@@ -93,7 +93,7 @@ int RunApplication()
 	//! [e17s02_cp]
 	//Define path locations
 	_bstr_t SamplesFolder = TheApplication->SamplesDir;
-	_bstr_t SampleFile = TheApplication->SamplesDir + "\\API\\CPP\\e17_BulkScatter.zos";
+	_bstr_t SampleFile = TheApplication->SamplesDir + "\\API\\CPP\\e17_BulkScatter.zmx";
 	//TheSystem.LoadFile(SampleFile, false);
 	TheSystem->SaveAs(SampleFile);
 	//! [e17s02_cp]

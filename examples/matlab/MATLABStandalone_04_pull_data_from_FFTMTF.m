@@ -53,7 +53,7 @@ import ZOSAPI.*;
     
     %! [e04s01_m]
     % Open file
-    testFile = System.String.Concat(sampleDir, '\Sequential\Objectives\Cooke 40 degree field.zos');
+    testFile = System.String.Concat(sampleDir, '\Sequential\Objectives\Cooke 40 degree field.zmx');
     TheSystem.LoadFile(testFile,false);
     %! [e04s01_m]
 

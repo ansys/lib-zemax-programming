@@ -77,7 +77,7 @@ namespace CSharpStandaloneApplication
             // Add your custom code here...
 
             // Open file and set Analysis Ryas to only 10
-            string testFile = TheApplication.SamplesDir + "\\Non-sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zos";
+            string testFile = TheApplication.SamplesDir + "\\Non-sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zmx";
             TheSystem.LoadFile(testFile, false);
             TheSystem.NCE.GetObjectAt(1).GetObjectCell(ZOSAPI.Editors.NCE.ObjectColumn.Par2).IntegerValue = 10;
 

@@ -90,7 +90,7 @@ namespace CSharpStandaloneApplication
             // Create New Sequential File
             TheSystem.New(false);
             // Name File
-            String fileName = TheApplication.SamplesDir + "\\API\\CS\\e11_basic_seq.zos";
+            String fileName = TheApplication.SamplesDir + "\\API\\CS\\e11_basic_seq.zmx";
             TheSystem.SaveAs(fileName);
             //! [e11s01_cs]
 

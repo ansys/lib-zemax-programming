@@ -79,7 +79,7 @@ int RunApplication()
 	CreateDirectory(TheApplication->SamplesDir + "\\API", NULL);
 	CreateDirectory(TheApplication->SamplesDir + "\\API\\CPP", NULL);
 
-	TheSystem->LoadFile(TheApplication->SamplesDir + "\\Sequential\\Objectives\\Double Gauss 28 degree field.zos", false);
+	TheSystem->LoadFile(TheApplication->SamplesDir + "\\Sequential\\Objectives\\Double Gauss 28 degree field.zmx", false);
 
 	// Get interface of the Multi-Configuration Editor
 	IMultiConfigEditorPtr TheMCE = TheSystem->MCE;
@@ -129,11 +129,11 @@ int RunApplication()
 	baseTool->RunAndWaitForCompletion();
     //! [e18s06_cp]
     
-	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e18_Double_Gauss_28_degree_field_MultiConfig.zos");
+	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e18_Double_Gauss_28_degree_field_MultiConfig.zmx");
 
 	//! [e18s07_cp]
 	// An exmple of manually "Make Thermal"
-	TheSystem->LoadFile(TheApplication->SamplesDir + "\\Sequential\\Objectives\\Doublet.zos", false);
+	TheSystem->LoadFile(TheApplication->SamplesDir + "\\Sequential\\Objectives\\Doublet.zmx", false);
 	// Add 1 configuration (totally 2)
 	TheMCE->AddConfiguration(false);
 	// Add 12 operand (totally 13)
@@ -184,7 +184,7 @@ int RunApplication()
 	TheSystemData->Environment->AdjustIndexToEnvironment = true;
 
 	// Save the system
-	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e18_Doublet_MakeTermal.zos");
+	TheSystem->SaveAs(TheApplication->SamplesDir + "\\API\\CPP\\e18_Doublet_MakeTermal.zmx");
 #if defined(_DEBUG)
 	// keeps console open when in debug mode
 	system("pause");

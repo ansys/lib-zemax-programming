@@ -93,14 +93,14 @@ namespace CSharpStandaloneApplication
 
             //! [e15s01_cs]
             // Load a double gauss design sample file
-            b_load = TheSystem.LoadFile(System.IO.Path.Combine(TheApplication.SamplesDir, @"Short course\Optical System Design Using OpticStudio\sc_dbga1.zos"), false);
+            b_load = TheSystem.LoadFile(System.IO.Path.Combine(TheApplication.SamplesDir, @"Short course\Optical System Design Using OpticStudio\sc_dbga1.zmx"), false);
             Console.WriteLine("\n" + "Double Gauss Design:\n");
             //! [e15s01_cs]
 
             //! [e15s02_cs]
             //Define path locations
             string SamplesFolder = TheApplication.SamplesDir;
-            string SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile.zos");
+            string SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile.zmx");
             TheSystem.SaveAs(SampleFile);
             //! [e15s02_cs]
 
@@ -159,7 +159,7 @@ namespace CSharpStandaloneApplication
             ISolveData Solver = Surface_Last.RadiusCell.CreateSolveType(ZOSAPI.Editors.SolveType.FNumber);
             Solver._S_FNumber.FNumber = 3.1415;
             Surface_Last.RadiusCell.SetSolveData(Solver);
-            SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile1.zos");
+            SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile1.zmx");
             TheSystem.SaveAs(SampleFile);
             //! [e15s07_cs]
 
@@ -171,7 +171,7 @@ namespace CSharpStandaloneApplication
             QFocus.UseCentroid = true;
             QFocus.RunAndWaitForCompletion();
             QFocus.Close();
-            SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile2.zos");
+            SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile2.zmx");
             TheSystem.SaveAs(SampleFile);
             //! [e15s08_cs]
 
@@ -204,7 +204,7 @@ namespace CSharpStandaloneApplication
             SolverPickup.ScaleFactor = 1;
             SolverPickup.Column = ZOSAPI.Editors.LDE.SurfaceColumn.Thickness;
             Surface10.ThicknessCell.SetSolveData(Solver);
-            SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile3.zos");
+            SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile3.zmx");
             TheSystem.SaveAs(SampleFile);
             //! [e15s11_cs]
 
@@ -233,7 +233,7 @@ namespace CSharpStandaloneApplication
             string mf_filename = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\RMS_Spot_Radius.mf");
             TheMFE.SaveMeritFunction(mf_filename);
             TheMFE.LoadMeritFunction(mf_filename);
-            SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile4.zos");
+            SampleFile = System.IO.Path.Combine(TheApplication.SamplesDir, @"API\CS\e15_Seq_Optimization\OptimizedFile4.zmx");
             //! [e15s12_cs]
 
             //! [e15s13_cs]

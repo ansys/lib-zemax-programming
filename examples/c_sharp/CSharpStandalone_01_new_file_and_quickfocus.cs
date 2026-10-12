@@ -85,7 +85,7 @@ namespace CSharpStandaloneApplication
 
             // Set up primary optical system
             string sampleDir = TheApplication.SamplesDir;
-            string testFile = sampleDir + "\\API\\CS\\e01_new_file_and_quickfocus.zos";
+            string testFile = sampleDir + "\\API\\CS\\e01_new_file_and_quickfocus.zmx";
 
             //! [e01s01_cs]
             // Make new file

@@ -87,7 +87,7 @@ namespace CSharpStandaloneApplication
 
             //! [e02s01_cs]
             // Open file
-            string testFile = sampleDir + "\\Non-sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zos";
+            string testFile = sampleDir + "\\Non-sequential\\Miscellaneous\\Digital_projector_flys_eye_homogenizer.zmx";
             TheSystem.LoadFile(testFile, false);
             //! [e02s01_cs]
 

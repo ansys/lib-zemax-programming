@@ -139,7 +139,7 @@ int RunApplication()
 	sysUnits->LensUnits = ZOSAPI_Interfaces::ZemaxSystemUnits_Inches;
 	//! [e12s08_cp]
 
-	TheSystem->SaveAs(_bstr_t(TheApplication->SamplesDir + "\\API\\CPP\\e12_system_explorer.zos"));
+	TheSystem->SaveAs(_bstr_t(TheApplication->SamplesDir + "\\API\\CPP\\e12_system_explorer.zmx"));
 
 	// Clean up
 	finishStandaloneApplication(TheApplication);
