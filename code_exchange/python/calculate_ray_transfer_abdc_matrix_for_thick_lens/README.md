@@ -20,7 +20,7 @@ We can export the angle of incidence and angle of refraction using PATY Operand 
 
 
 ## Author
-Sahil Rajan
+**Sahil Rajan**
 
 ## Instructions
 

@@ -9,7 +9,7 @@ Note that the conversion may not work properly for color images depending on the
 ![Alt text](LaserBeam1.png)
 
 ## Author
-Sandrine Auriol
+**Sandrine Auriol**
 
 ## Instructions
 
