@@ -7,7 +7,7 @@ The code in this repository is intended to retrieve the file name when working i
 ---
 ## Author
 
-**Michael H** 
+**Michael H.** 
 
 ## Instructions
 

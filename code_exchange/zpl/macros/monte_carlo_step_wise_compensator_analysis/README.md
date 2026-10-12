@@ -5,7 +5,7 @@ This macro applies incremental changes to a compensator in Monte Carlo files, th
 
 ## Author
 
-Alexandra Culler
+**Alexandra Culler**
 
 ## Instructions
 

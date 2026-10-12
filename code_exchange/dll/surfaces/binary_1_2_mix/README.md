@@ -4,7 +4,7 @@
 
 This DLL provides a User Defined Surface that has planar a substrate and a phase profile integrating both radial polynomials and extended *X/Y* polynomials. It can be considered as a combination of the *Binary 1* and *Binary 2* surfaces, but with only planar substrate. This kind of phase profile definition is useful for metalens design.
 
-![Alt text](Binary1+2_parameters.png)
+![Alt text](Binary_1_2_parameters.png)
 
 ## Source Language
 C++
@@ -21,7 +21,7 @@ The DLL is also contained in the example Zemax file, so opening the *Binary2_mix
 
 #### 2. How to use
 
-![Alt text](Binary1+2_demo.png)
+![Alt text](Binary_1_2_demo.png)
 
 To use the DLL, open a sequential Zemax file in which you would like to use the *Binary 1+2 mix* surface. Change the surface type to *User Defined* and select the *us_binary_mix12.dll*.
 

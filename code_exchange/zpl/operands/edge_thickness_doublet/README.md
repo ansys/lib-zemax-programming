@@ -8,7 +8,7 @@ This ZPL operand (ZPL30) computes the top and bottom edge thickness of a Doublet
 
 
 ## Author
-Sandrine Auriol
+**Sandrine Auriol**
 
 ## Instructions
 
