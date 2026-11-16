@@ -11,6 +11,35 @@ Alexandra Culler
 ## Language
 ZPL
 
+## Procedure
+Apply Make Thermal: Procedure
+1. Enter number of configs, min, and max temperature.
+2. Open an MC file for editing.
+3. Clear the Multi-Configuration Editor.
+4. Insert new configurations based on the input configNUM
+5. Apply each standard operand (Radius, Thickness, Clear Semi-Diameter, Chip 
+Zone, Mechanical Semi-Diameter).
+6. Apply the Thermal Pickup solves.
+7. Update lens, and save output
+
+## Can we expand the functionality?
+1. The coefficients for Even Aspheres will have additional Multi-Configuration 
+operands than the standard ones already added. We can check for the surface 
+type with the BUFFER command. 
+2. $BUFFER():
+    a. Numeric Functions will return numeric values (marked as black in the ZPL)
+    b.  Occasionally, certain settings for some Numeric Functions will return a string value. In that case, the string is placed in the "buffer". To extract it, use the String Function $BUFFER()
+
+![Alt text](image1.png)
+
+## Update the macro
+1. Add a Numeric Function which checks on surface properties. Use this Numeric Function to 
+pull the Surface Type. Use $BUFFER() to return the string. 
+2. Add an IF statement to check for an Even Asphere. If one exists, add and edit more Multi
+Configuration operands
+
+![Alt text](image2.png)
+
 ## Download
 <table>
 

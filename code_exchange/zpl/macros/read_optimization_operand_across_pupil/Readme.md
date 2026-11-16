@@ -14,6 +14,25 @@ Alexandra Culler
 ## Language
 ZPL
 
+## Instructions
+
+1. Installation 
+Copy the macro to the {Zemax}\Macros folder on your machine.  
+
+2. How to use 
+In OpticStudio, navigate to Programming…Edit/Run and open the macro for editing. Modify lines 6, 7, 
+and 8. These correspond respectively to the number of steps across the pupil, the surface of interest, and the wavelength of interest. 
+
+![Alt text](image2.png)
+
+On line 56 we define which optimization operand we will use for this analysis. Be default, we are using RAID. If the operand is updated, you must make sure line 60 is still valid. Line 60 represents the operand inputs. For the RAID operand, we input the following:
+
+![Alt text](image3.png)
+
+Once the values of the macro are confirmed, save it and run. The output will be a field-by-field analysis of the optimization operand at different pupil locations on a given surface. The text can be directly output to an external file, or copied from the Text Viewer into a post-processing program. 
+![Alt text](image4.png)
+
+
 ## Download
 <table>
 
